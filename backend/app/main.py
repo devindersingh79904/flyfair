@@ -1,7 +1,7 @@
 import os
 import logging
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
@@ -71,6 +71,17 @@ app.add_exception_handler(RequestValidationError, validation_exception_handler)
 app.add_exception_handler(StarletteHTTPException, http_exception_handler)
 app.add_exception_handler(Exception, general_exception_handler)
 
+from app.core.response_builder import build_success_response
+
 # 4. Include API Route Modules
 app.include_router(health_routes.router, prefix=settings.API_PREFIX)
 app.include_router(airport_search_routes.router, prefix=settings.API_PREFIX)
+
+@app.get("/")
+async def root(request: Request):
+    correlation_id = getattr(request.state, "correlation_id", "")
+    return build_success_response(
+        data=None,
+        message="app is working",
+        correlation_id=correlation_id
+    )
