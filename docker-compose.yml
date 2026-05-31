@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - BACKEND_CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: http://localhost:8000/api/v1
+        VITE_SHOW_DEBUG_RANKING: "false"
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend

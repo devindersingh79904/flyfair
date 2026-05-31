@@ -1,0 +1,33 @@
+{
+  "source": "OurAirports CSV",
+  "generatedAt": "2026-05-29T06:17:03.098924+00:00",
+  "rawFiles": {
+    "airports": "backend/raw_data/airports.csv",
+    "countries": "backend/raw_data/countries.csv",
+    "regions": "backend/raw_data/regions.csv"
+  },
+  "filters": {
+    "includedTypes": [
+      "small_airport",
+      "medium_airport",
+      "large_airport"
+    ],
+    "excludedTypes": [
+      "closed",
+      "heliport",
+      "seaplane_base",
+      "balloonport"
+    ],
+    "requiresIata": true
+  },
+  "counts": {
+    "rawAirports": 85489,
+    "generatedAirports": 8804,
+    "countries": 249,
+    "regions": 3982
+  },
+  "notes": [
+    "Generated airport index includes all OurAirports rows with IATA codes for large, medium, and small airports.",
+    "Curated aliases, city groups, and region groups are maintained separately for product-specific search behavior."
+  ]
+}

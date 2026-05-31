@@ -1,0 +1,1689 @@
+[
+  {
+    "alias": "\u5317\u4eac",
+    "normalizedAlias": "Bei Jing",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PEK",
+    "priority": 98
+  },
+  {
+    "alias": "\u5317\u4eac",
+    "normalizedAlias": "Bei Jing",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:beijing-cn",
+    "priority": 99
+  },
+  {
+    "alias": "\u5317\u4eac",
+    "normalizedAlias": "Bei Jing",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PKX",
+    "priority": 94
+  },
+  {
+    "alias": "\u6771\u4eac",
+    "normalizedAlias": "Dong Jing",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HND",
+    "priority": 98
+  },
+  {
+    "alias": "\u6771\u4eac",
+    "normalizedAlias": "Dong Jing",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 99
+  },
+  {
+    "alias": "\u6771\u4eac",
+    "normalizedAlias": "Dong Jing",
+    "targetType": "AIRPORT",
+    "targetId": "airport:NRT",
+    "priority": 96
+  },
+  {
+    "alias": "BAH",
+    "normalizedAlias": "bah",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BAH",
+    "priority": 100
+  },
+  {
+    "alias": "bahrain",
+    "normalizedAlias": "bahrain",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BAH",
+    "priority": 85
+  },
+  {
+    "alias": "Bahrain International Airport",
+    "normalizedAlias": "bahrain international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BAH",
+    "priority": 85
+  },
+  {
+    "alias": "bali",
+    "normalizedAlias": "bali",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DPS",
+    "priority": 90
+  },
+  {
+    "alias": "Balikpapan",
+    "normalizedAlias": "balikpapan",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BPN",
+    "priority": 50
+  },
+  {
+    "alias": "bangalore",
+    "normalizedAlias": "bangalore",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BLR",
+    "priority": 90
+  },
+  {
+    "alias": "Beijing",
+    "normalizedAlias": "beijing",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PEK",
+    "priority": 98
+  },
+  {
+    "alias": "beijing",
+    "normalizedAlias": "beijing",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:beijing-cn",
+    "priority": 96
+  },
+  {
+    "alias": "Beijing",
+    "normalizedAlias": "beijing",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PKX",
+    "priority": 94
+  },
+  {
+    "alias": "Beijing Capital International Airport",
+    "normalizedAlias": "beijing capital international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PEK",
+    "priority": 98
+  },
+  {
+    "alias": "Beijing Daxing International Airport",
+    "normalizedAlias": "beijing daxing international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PKX",
+    "priority": 94
+  },
+  {
+    "alias": "Bengaluru",
+    "normalizedAlias": "bengaluru",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BLR",
+    "priority": 90
+  },
+  {
+    "alias": "big island",
+    "normalizedAlias": "big island",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:us-hi",
+    "priority": 92
+  },
+  {
+    "alias": "big island",
+    "normalizedAlias": "big island",
+    "targetType": "AIRPORT",
+    "targetId": "airport:KOA",
+    "priority": 60
+  },
+  {
+    "alias": "Billy Bishop Toronto City Airport",
+    "normalizedAlias": "billy bishop toronto city airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YTZ",
+    "priority": 40
+  },
+  {
+    "alias": "BJS",
+    "normalizedAlias": "bjs",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:beijing-cn",
+    "priority": 96
+  },
+  {
+    "alias": "BLR",
+    "normalizedAlias": "blr",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BLR",
+    "priority": 100
+  },
+  {
+    "alias": "BPN",
+    "normalizedAlias": "bpn",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BPN",
+    "priority": 100
+  },
+  {
+    "alias": "Breslau",
+    "normalizedAlias": "breslau",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YKF",
+    "priority": 40
+  },
+  {
+    "alias": "BRU",
+    "normalizedAlias": "bru",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BRU",
+    "priority": 100
+  },
+  {
+    "alias": "brussels",
+    "normalizedAlias": "brussels",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BRU",
+    "priority": 88
+  },
+  {
+    "alias": "Brussels Airport",
+    "normalizedAlias": "brussels airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BRU",
+    "priority": 88
+  },
+  {
+    "alias": "Campinas",
+    "normalizedAlias": "campinas",
+    "targetType": "AIRPORT",
+    "targetId": "airport:VCP",
+    "priority": 76
+  },
+  {
+    "alias": "capital",
+    "normalizedAlias": "capital",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PEK",
+    "priority": 98
+  },
+  {
+    "alias": "Catania",
+    "normalizedAlias": "catania",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CTA",
+    "priority": 60
+  },
+  {
+    "alias": "Catania-Fontanarossa Airport",
+    "normalizedAlias": "catania-fontanarossa airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CTA",
+    "priority": 60
+  },
+  {
+    "alias": "CGH",
+    "normalizedAlias": "cgh",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CGH",
+    "priority": 100
+  },
+  {
+    "alias": "chile",
+    "normalizedAlias": "chile",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LSC",
+    "priority": 20
+  },
+  {
+    "alias": "CIA",
+    "normalizedAlias": "cia",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CIA",
+    "priority": 100
+  },
+  {
+    "alias": "ciampino",
+    "normalizedAlias": "ciampino",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CIA",
+    "priority": 60
+  },
+  {
+    "alias": "Ciampino\u2013G. B. Pastine International Airport",
+    "normalizedAlias": "ciampino-g. b. pastine international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CIA",
+    "priority": 60
+  },
+  {
+    "alias": "congonhas",
+    "normalizedAlias": "congonhas",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CGH",
+    "priority": 78
+  },
+  {
+    "alias": "Congonhas\u2013Deputado Freitas Nobre Airport",
+    "normalizedAlias": "congonhas-deputado freitas nobre airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CGH",
+    "priority": 78
+  },
+  {
+    "alias": "CTA",
+    "normalizedAlias": "cta",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CTA",
+    "priority": 100
+  },
+  {
+    "alias": "dabolim",
+    "normalizedAlias": "dabolim",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOI",
+    "priority": 60
+  },
+  {
+    "alias": "Daniel K. Inouye International Airport",
+    "normalizedAlias": "daniel k. inouye international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HNL",
+    "priority": 60
+  },
+  {
+    "alias": "daxing",
+    "normalizedAlias": "daxing",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PKX",
+    "priority": 94
+  },
+  {
+    "alias": "\u062f\u0628\u064a",
+    "normalizedAlias": "dby",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 100
+  },
+  {
+    "alias": "denpasar",
+    "normalizedAlias": "denpasar",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DPS",
+    "priority": 90
+  },
+  {
+    "alias": "Denpasar I Gusti Ngurah Rai International Airport",
+    "normalizedAlias": "denpasar i gusti ngurah rai international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DPS",
+    "priority": 90
+  },
+  {
+    "alias": "DPS",
+    "normalizedAlias": "dps",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DPS",
+    "priority": 100
+  },
+  {
+    "alias": "Dubai",
+    "normalizedAlias": "dubai",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 100
+  },
+  {
+    "alias": "Dubai International Airport",
+    "normalizedAlias": "dubai international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 100
+  },
+  {
+    "alias": "DXB",
+    "normalizedAlias": "dxb",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 100
+  },
+  {
+    "alias": "Ellison Onizuka Kona International Airport at Ke\u0101hole",
+    "normalizedAlias": "ellison onizuka kona international airport at keahole",
+    "targetType": "AIRPORT",
+    "targetId": "airport:KOA",
+    "priority": 60
+  },
+  {
+    "alias": "FCO",
+    "normalizedAlias": "fco",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FCO",
+    "priority": 100
+  },
+  {
+    "alias": "fiumicino",
+    "normalizedAlias": "fiumicino",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FCO",
+    "priority": 92
+  },
+  {
+    "alias": "fl",
+    "normalizedAlias": "fl",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:us-fl",
+    "priority": 92
+  },
+  {
+    "alias": "FLL",
+    "normalizedAlias": "fll",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FLL",
+    "priority": 100
+  },
+  {
+    "alias": "florida",
+    "normalizedAlias": "florida",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:us-fl",
+    "priority": 92
+  },
+  {
+    "alias": "florida",
+    "normalizedAlias": "florida",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MIA",
+    "priority": 60
+  },
+  {
+    "alias": "florida",
+    "normalizedAlias": "florida",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MCO",
+    "priority": 60
+  },
+  {
+    "alias": "florida",
+    "normalizedAlias": "florida",
+    "targetType": "AIRPORT",
+    "targetId": "airport:TPA",
+    "priority": 60
+  },
+  {
+    "alias": "florida",
+    "normalizedAlias": "florida",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FLL",
+    "priority": 60
+  },
+  {
+    "alias": "florida",
+    "normalizedAlias": "florida",
+    "targetType": "AIRPORT",
+    "targetId": "airport:JAX",
+    "priority": 60
+  },
+  {
+    "alias": "florida",
+    "normalizedAlias": "florida",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PBI",
+    "priority": 60
+  },
+  {
+    "alias": "Fort Lauderdale",
+    "normalizedAlias": "fort lauderdale",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FLL",
+    "priority": 60
+  },
+  {
+    "alias": "Fort Lauderdale Hollywood International Airport",
+    "normalizedAlias": "fort lauderdale hollywood international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FLL",
+    "priority": 60
+  },
+  {
+    "alias": "gatwick",
+    "normalizedAlias": "gatwick",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LGW",
+    "priority": 92
+  },
+  {
+    "alias": "gimpo",
+    "normalizedAlias": "gimpo",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GMP",
+    "priority": 80
+  },
+  {
+    "alias": "Gimpo International Airport",
+    "normalizedAlias": "gimpo international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GMP",
+    "priority": 80
+  },
+  {
+    "alias": "GMP",
+    "normalizedAlias": "gmp",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GMP",
+    "priority": 100
+  },
+  {
+    "alias": "goa",
+    "normalizedAlias": "goa",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:goa-in",
+    "priority": 82
+  },
+  {
+    "alias": "goa",
+    "normalizedAlias": "goa",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOI",
+    "priority": 60
+  },
+  {
+    "alias": "goa",
+    "normalizedAlias": "goa",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOX",
+    "priority": 60
+  },
+  {
+    "alias": "Goa Dabolim International Airport",
+    "normalizedAlias": "goa dabolim international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOI",
+    "priority": 60
+  },
+  {
+    "alias": "GOI",
+    "normalizedAlias": "goi",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOI",
+    "priority": 100
+  },
+  {
+    "alias": "GOX",
+    "normalizedAlias": "gox",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOX",
+    "priority": 100
+  },
+  {
+    "alias": "GRU",
+    "normalizedAlias": "gru",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GRU",
+    "priority": 100
+  },
+  {
+    "alias": "guarulhos",
+    "normalizedAlias": "guarulhos",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GRU",
+    "priority": 94
+  },
+  {
+    "alias": "Hamilton",
+    "normalizedAlias": "hamilton",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YHM",
+    "priority": 40
+  },
+  {
+    "alias": "haneda",
+    "normalizedAlias": "haneda",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HND",
+    "priority": 98
+  },
+  {
+    "alias": "hawai\u02bbi",
+    "normalizedAlias": "hawai`i",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:us-hi",
+    "priority": 92
+  },
+  {
+    "alias": "hawaii",
+    "normalizedAlias": "hawaii",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:us-hi",
+    "priority": 92
+  },
+  {
+    "alias": "hawaii",
+    "normalizedAlias": "hawaii",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HNL",
+    "priority": 60
+  },
+  {
+    "alias": "hawaii",
+    "normalizedAlias": "hawaii",
+    "targetType": "AIRPORT",
+    "targetId": "airport:OGG",
+    "priority": 60
+  },
+  {
+    "alias": "hawaii",
+    "normalizedAlias": "hawaii",
+    "targetType": "AIRPORT",
+    "targetId": "airport:KOA",
+    "priority": 60
+  },
+  {
+    "alias": "hawaii",
+    "normalizedAlias": "hawaii",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LIH",
+    "priority": 60
+  },
+  {
+    "alias": "heathrow",
+    "normalizedAlias": "heathrow",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LHR",
+    "priority": 100
+  },
+  {
+    "alias": "HND",
+    "normalizedAlias": "hnd",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HND",
+    "priority": 100
+  },
+  {
+    "alias": "HNL",
+    "normalizedAlias": "hnl",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HNL",
+    "priority": 100
+  },
+  {
+    "alias": "honolulu",
+    "normalizedAlias": "honolulu",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HNL",
+    "priority": 60
+  },
+  {
+    "alias": "Honolulu, Oahu",
+    "normalizedAlias": "honolulu, oahu",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HNL",
+    "priority": 60
+  },
+  {
+    "alias": "ICN",
+    "normalizedAlias": "icn",
+    "targetType": "AIRPORT",
+    "targetId": "airport:ICN",
+    "priority": 100
+  },
+  {
+    "alias": "incheon",
+    "normalizedAlias": "incheon",
+    "targetType": "AIRPORT",
+    "targetId": "airport:ICN",
+    "priority": 98
+  },
+  {
+    "alias": "Incheon International Airport",
+    "normalizedAlias": "incheon international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:ICN",
+    "priority": 98
+  },
+  {
+    "alias": "Jacksonville",
+    "normalizedAlias": "jacksonville",
+    "targetType": "AIRPORT",
+    "targetId": "airport:JAX",
+    "priority": 60
+  },
+  {
+    "alias": "Jacksonville International Airport",
+    "normalizedAlias": "jacksonville international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:JAX",
+    "priority": 60
+  },
+  {
+    "alias": "JAX",
+    "normalizedAlias": "jax",
+    "targetType": "AIRPORT",
+    "targetId": "airport:JAX",
+    "priority": 100
+  },
+  {
+    "alias": "John C. Munro Hamilton International Airport",
+    "normalizedAlias": "john c. munro hamilton international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YHM",
+    "priority": 40
+  },
+  {
+    "alias": "Kahului",
+    "normalizedAlias": "kahului",
+    "targetType": "AIRPORT",
+    "targetId": "airport:OGG",
+    "priority": 60
+  },
+  {
+    "alias": "Kahului International Airport",
+    "normalizedAlias": "kahului international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:OGG",
+    "priority": 60
+  },
+  {
+    "alias": "Kailua-Kona",
+    "normalizedAlias": "kailua-kona",
+    "targetType": "AIRPORT",
+    "targetId": "airport:KOA",
+    "priority": 60
+  },
+  {
+    "alias": "kauai",
+    "normalizedAlias": "kauai",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:us-hi",
+    "priority": 92
+  },
+  {
+    "alias": "kauai",
+    "normalizedAlias": "kauai",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LIH",
+    "priority": 60
+  },
+  {
+    "alias": "kempegowda",
+    "normalizedAlias": "kempegowda",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BLR",
+    "priority": 90
+  },
+  {
+    "alias": "Kempegowda International Airport Bengaluru",
+    "normalizedAlias": "kempegowda international airport bengaluru",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BLR",
+    "priority": 90
+  },
+  {
+    "alias": "KOA",
+    "normalizedAlias": "koa",
+    "targetType": "AIRPORT",
+    "targetId": "airport:KOA",
+    "priority": 100
+  },
+  {
+    "alias": "kona",
+    "normalizedAlias": "kona",
+    "targetType": "AIRPORT",
+    "targetId": "airport:KOA",
+    "priority": 60
+  },
+  {
+    "alias": "Kuta, Badung",
+    "normalizedAlias": "kuta, badung",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DPS",
+    "priority": 90
+  },
+  {
+    "alias": "la florida",
+    "normalizedAlias": "la florida",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LSC",
+    "priority": 20
+  },
+  {
+    "alias": "La Florida Airport",
+    "normalizedAlias": "la florida airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LSC",
+    "priority": 20
+  },
+  {
+    "alias": "la serena",
+    "normalizedAlias": "la serena",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LSC",
+    "priority": 20
+  },
+  {
+    "alias": "La Serena-Coquimbo",
+    "normalizedAlias": "la serena-coquimbo",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LSC",
+    "priority": 20
+  },
+  {
+    "alias": "LCY",
+    "normalizedAlias": "lcy",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LCY",
+    "priority": 100
+  },
+  {
+    "alias": "LGW",
+    "normalizedAlias": "lgw",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LGW",
+    "priority": 100
+  },
+  {
+    "alias": "LHR",
+    "normalizedAlias": "lhr",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LHR",
+    "priority": 100
+  },
+  {
+    "alias": "LIH",
+    "normalizedAlias": "lih",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LIH",
+    "priority": 100
+  },
+  {
+    "alias": "lihue",
+    "normalizedAlias": "lihue",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LIH",
+    "priority": 60
+  },
+  {
+    "alias": "Lihue Airport",
+    "normalizedAlias": "lihue airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LIH",
+    "priority": 60
+  },
+  {
+    "alias": "Lihue, Kauai",
+    "normalizedAlias": "lihue, kauai",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LIH",
+    "priority": 60
+  },
+  {
+    "alias": "LON",
+    "normalizedAlias": "lon",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 100
+  },
+  {
+    "alias": "London",
+    "normalizedAlias": "london",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LHR",
+    "priority": 100
+  },
+  {
+    "alias": "london",
+    "normalizedAlias": "london",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 100
+  },
+  {
+    "alias": "London",
+    "normalizedAlias": "london",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LGW",
+    "priority": 92
+  },
+  {
+    "alias": "london",
+    "normalizedAlias": "london",
+    "targetType": "AIRPORT",
+    "targetId": "airport:STN",
+    "priority": 82
+  },
+  {
+    "alias": "London",
+    "normalizedAlias": "london",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LCY",
+    "priority": 75
+  },
+  {
+    "alias": "london",
+    "normalizedAlias": "london",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LTN",
+    "priority": 72
+  },
+  {
+    "alias": "London",
+    "normalizedAlias": "london",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YXU",
+    "priority": 40
+  },
+  {
+    "alias": "London",
+    "normalizedAlias": "london",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LOZ",
+    "priority": 20
+  },
+  {
+    "alias": "london canada",
+    "normalizedAlias": "london canada",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-ca",
+    "priority": 45
+  },
+  {
+    "alias": "london canada",
+    "normalizedAlias": "london canada",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YXU",
+    "priority": 40
+  },
+  {
+    "alias": "london city",
+    "normalizedAlias": "london city",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LCY",
+    "priority": 75
+  },
+  {
+    "alias": "London City Airport",
+    "normalizedAlias": "london city airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LCY",
+    "priority": 75
+  },
+  {
+    "alias": "london corbin",
+    "normalizedAlias": "london corbin",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LOZ",
+    "priority": 20
+  },
+  {
+    "alias": "London Gatwick Airport",
+    "normalizedAlias": "london gatwick airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LGW",
+    "priority": 92
+  },
+  {
+    "alias": "London Heathrow Airport",
+    "normalizedAlias": "london heathrow airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LHR",
+    "priority": 100
+  },
+  {
+    "alias": "London International Airport",
+    "normalizedAlias": "london international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YXU",
+    "priority": 40
+  },
+  {
+    "alias": "london kentucky",
+    "normalizedAlias": "london kentucky",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-us-ky",
+    "priority": 25
+  },
+  {
+    "alias": "london kentucky",
+    "normalizedAlias": "london kentucky",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LOZ",
+    "priority": 20
+  },
+  {
+    "alias": "london ky",
+    "normalizedAlias": "london ky",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-us-ky",
+    "priority": 25
+  },
+  {
+    "alias": "London Luton Airport",
+    "normalizedAlias": "london luton airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LTN",
+    "priority": 72
+  },
+  {
+    "alias": "london ontario",
+    "normalizedAlias": "london ontario",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-ca",
+    "priority": 45
+  },
+  {
+    "alias": "london ontario",
+    "normalizedAlias": "london ontario",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YXU",
+    "priority": 40
+  },
+  {
+    "alias": "London Stansted Airport",
+    "normalizedAlias": "london stansted airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:STN",
+    "priority": 82
+  },
+  {
+    "alias": "london uk",
+    "normalizedAlias": "london uk",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 100
+  },
+  {
+    "alias": "london united kingdom",
+    "normalizedAlias": "london united kingdom",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 100
+  },
+  {
+    "alias": "London, Essex",
+    "normalizedAlias": "london, essex",
+    "targetType": "AIRPORT",
+    "targetId": "airport:STN",
+    "priority": 82
+  },
+  {
+    "alias": "London-Corbin Airport/Magee Field",
+    "normalizedAlias": "london-corbin airport/magee field",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LOZ",
+    "priority": 20
+  },
+  {
+    "alias": "LOZ",
+    "normalizedAlias": "loz",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LOZ",
+    "priority": 100
+  },
+  {
+    "alias": "LSC",
+    "normalizedAlias": "lsc",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LSC",
+    "priority": 100
+  },
+  {
+    "alias": "LTN",
+    "normalizedAlias": "ltn",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LTN",
+    "priority": 100
+  },
+  {
+    "alias": "luton",
+    "normalizedAlias": "luton",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LTN",
+    "priority": 72
+  },
+  {
+    "alias": "Luton, Luton",
+    "normalizedAlias": "luton, luton",
+    "targetType": "AIRPORT",
+    "targetId": "airport:LTN",
+    "priority": 72
+  },
+  {
+    "alias": "Manama",
+    "normalizedAlias": "manama",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BAH",
+    "priority": 85
+  },
+  {
+    "alias": "Manohar International Airport",
+    "normalizedAlias": "manohar international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOX",
+    "priority": 60
+  },
+  {
+    "alias": "maui",
+    "normalizedAlias": "maui",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:us-hi",
+    "priority": 92
+  },
+  {
+    "alias": "maui",
+    "normalizedAlias": "maui",
+    "targetType": "AIRPORT",
+    "targetId": "airport:OGG",
+    "priority": 60
+  },
+  {
+    "alias": "MCO",
+    "normalizedAlias": "mco",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MCO",
+    "priority": 100
+  },
+  {
+    "alias": "MIA",
+    "normalizedAlias": "mia",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MIA",
+    "priority": 100
+  },
+  {
+    "alias": "Miami",
+    "normalizedAlias": "miami",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MIA",
+    "priority": 60
+  },
+  {
+    "alias": "Miami International Airport",
+    "normalizedAlias": "miami international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MIA",
+    "priority": 60
+  },
+  {
+    "alias": "Mopa",
+    "normalizedAlias": "mopa",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOX",
+    "priority": 60
+  },
+  {
+    "alias": "MUC",
+    "normalizedAlias": "muc",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MUC",
+    "priority": 100
+  },
+  {
+    "alias": "munchen",
+    "normalizedAlias": "munchen",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MUC",
+    "priority": 92
+  },
+  {
+    "alias": "Munich",
+    "normalizedAlias": "munich",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MUC",
+    "priority": 92
+  },
+  {
+    "alias": "Munich Airport",
+    "normalizedAlias": "munich airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MUC",
+    "priority": 92
+  },
+  {
+    "alias": "Narita",
+    "normalizedAlias": "narita",
+    "targetType": "AIRPORT",
+    "targetId": "airport:NRT",
+    "priority": 96
+  },
+  {
+    "alias": "Narita International Airport",
+    "normalizedAlias": "narita international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:NRT",
+    "priority": 96
+  },
+  {
+    "alias": "ngurah rai",
+    "normalizedAlias": "ngurah rai",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DPS",
+    "priority": 90
+  },
+  {
+    "alias": "NRT",
+    "normalizedAlias": "nrt",
+    "targetType": "AIRPORT",
+    "targetId": "airport:NRT",
+    "priority": 100
+  },
+  {
+    "alias": "oahu",
+    "normalizedAlias": "oahu",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:us-hi",
+    "priority": 92
+  },
+  {
+    "alias": "oahu",
+    "normalizedAlias": "oahu",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HNL",
+    "priority": 60
+  },
+  {
+    "alias": "OGG",
+    "normalizedAlias": "ogg",
+    "targetType": "AIRPORT",
+    "targetId": "airport:OGG",
+    "priority": 100
+  },
+  {
+    "alias": "ontario",
+    "normalizedAlias": "ontario",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:ca-on",
+    "priority": 86
+  },
+  {
+    "alias": "ontario",
+    "normalizedAlias": "ontario",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YYZ",
+    "priority": 60
+  },
+  {
+    "alias": "ontario",
+    "normalizedAlias": "ontario",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YTZ",
+    "priority": 40
+  },
+  {
+    "alias": "ontario",
+    "normalizedAlias": "ontario",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YHM",
+    "priority": 40
+  },
+  {
+    "alias": "ontario",
+    "normalizedAlias": "ontario",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YKF",
+    "priority": 40
+  },
+  {
+    "alias": "ontario canada",
+    "normalizedAlias": "ontario canada",
+    "targetType": "REGION_GROUP",
+    "targetId": "region:ca-on",
+    "priority": 86
+  },
+  {
+    "alias": "Orlando",
+    "normalizedAlias": "orlando",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MCO",
+    "priority": 60
+  },
+  {
+    "alias": "Orlando International Airport",
+    "normalizedAlias": "orlando international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:MCO",
+    "priority": 60
+  },
+  {
+    "alias": "palm beach",
+    "normalizedAlias": "palm beach",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PBI",
+    "priority": 60
+  },
+  {
+    "alias": "Palm Beach International Airport",
+    "normalizedAlias": "palm beach international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PBI",
+    "priority": 60
+  },
+  {
+    "alias": "PBI",
+    "normalizedAlias": "pbi",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PBI",
+    "priority": 100
+  },
+  {
+    "alias": "PEK",
+    "normalizedAlias": "pek",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PEK",
+    "priority": 100
+  },
+  {
+    "alias": "peking",
+    "normalizedAlias": "peking",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PEK",
+    "priority": 98
+  },
+  {
+    "alias": "peking",
+    "normalizedAlias": "peking",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:beijing-cn",
+    "priority": 96
+  },
+  {
+    "alias": "PKX",
+    "normalizedAlias": "pkx",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PKX",
+    "priority": 100
+  },
+  {
+    "alias": "Region of Waterloo International Airport",
+    "normalizedAlias": "region of waterloo international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YKF",
+    "priority": 40
+  },
+  {
+    "alias": "ROM",
+    "normalizedAlias": "rom",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:rome-it",
+    "priority": 90
+  },
+  {
+    "alias": "roma",
+    "normalizedAlias": "roma",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FCO",
+    "priority": 92
+  },
+  {
+    "alias": "roma",
+    "normalizedAlias": "roma",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:rome-it",
+    "priority": 90
+  },
+  {
+    "alias": "roma",
+    "normalizedAlias": "roma",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CIA",
+    "priority": 60
+  },
+  {
+    "alias": "Rome",
+    "normalizedAlias": "rome",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FCO",
+    "priority": 92
+  },
+  {
+    "alias": "rome",
+    "normalizedAlias": "rome",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:rome-it",
+    "priority": 94
+  },
+  {
+    "alias": "Rome",
+    "normalizedAlias": "rome",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CIA",
+    "priority": 60
+  },
+  {
+    "alias": "Rome\u2013Fiumicino Leonardo da Vinci International Airport",
+    "normalizedAlias": "rome-fiumicino leonardo da vinci international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:FCO",
+    "priority": 92
+  },
+  {
+    "alias": "sampa",
+    "normalizedAlias": "sampa",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:sao-paulo-br",
+    "priority": 94
+  },
+  {
+    "alias": "SAO",
+    "normalizedAlias": "sao",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:sao-paulo-br",
+    "priority": 94
+  },
+  {
+    "alias": "S\u00e3o Paulo",
+    "normalizedAlias": "sao paulo",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GRU",
+    "priority": 94
+  },
+  {
+    "alias": "sao paulo",
+    "normalizedAlias": "sao paulo",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:sao-paulo-br",
+    "priority": 96
+  },
+  {
+    "alias": "S\u00e3o Paulo",
+    "normalizedAlias": "sao paulo",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CGH",
+    "priority": 78
+  },
+  {
+    "alias": "sao paulo",
+    "normalizedAlias": "sao paulo",
+    "targetType": "AIRPORT",
+    "targetId": "airport:VCP",
+    "priority": 76
+  },
+  {
+    "alias": "S\u00e3o Paulo/Guarulhos\u2013Governor Andr\u00e9 Franco Montoro International Airport",
+    "normalizedAlias": "sao paulo/guarulhos-governor andre franco montoro international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GRU",
+    "priority": 94
+  },
+  {
+    "alias": "\uc11c\uc6b8",
+    "normalizedAlias": "seoul",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:seoul-kr",
+    "priority": 99
+  },
+  {
+    "alias": "\uc11c\uc6b8",
+    "normalizedAlias": "seoul",
+    "targetType": "AIRPORT",
+    "targetId": "airport:ICN",
+    "priority": 98
+  },
+  {
+    "alias": "\uc11c\uc6b8",
+    "normalizedAlias": "seoul",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GMP",
+    "priority": 80
+  },
+  {
+    "alias": "SEL",
+    "normalizedAlias": "sel",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:seoul-kr",
+    "priority": 96
+  },
+  {
+    "alias": "Seoul",
+    "normalizedAlias": "seoul",
+    "targetType": "AIRPORT",
+    "targetId": "airport:ICN",
+    "priority": 98
+  },
+  {
+    "alias": "seoul",
+    "normalizedAlias": "seoul",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:seoul-kr",
+    "priority": 99
+  },
+  {
+    "alias": "Seoul",
+    "normalizedAlias": "seoul",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GMP",
+    "priority": 80
+  },
+  {
+    "alias": "stansted",
+    "normalizedAlias": "stansted",
+    "targetType": "AIRPORT",
+    "targetId": "airport:STN",
+    "priority": 82
+  },
+  {
+    "alias": "STN",
+    "normalizedAlias": "stn",
+    "targetType": "AIRPORT",
+    "targetId": "airport:STN",
+    "priority": 100
+  },
+  {
+    "alias": "Sultan Aji Muhammad Sulaiman Sepinggan International Airport",
+    "normalizedAlias": "sultan aji muhammad sulaiman sepinggan international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BPN",
+    "priority": 50
+  },
+  {
+    "alias": "Tampa",
+    "normalizedAlias": "tampa",
+    "targetType": "AIRPORT",
+    "targetId": "airport:TPA",
+    "priority": 60
+  },
+  {
+    "alias": "Tampa International Airport",
+    "normalizedAlias": "tampa international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:TPA",
+    "priority": 60
+  },
+  {
+    "alias": "Tokyo",
+    "normalizedAlias": "tokyo",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HND",
+    "priority": 98
+  },
+  {
+    "alias": "tokyo",
+    "normalizedAlias": "tokyo",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 98
+  },
+  {
+    "alias": "tokyo",
+    "normalizedAlias": "tokyo",
+    "targetType": "AIRPORT",
+    "targetId": "airport:NRT",
+    "priority": 96
+  },
+  {
+    "alias": "Tokyo Haneda International Airport",
+    "normalizedAlias": "tokyo haneda international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:HND",
+    "priority": 98
+  },
+  {
+    "alias": "Toronto",
+    "normalizedAlias": "toronto",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YYZ",
+    "priority": 60
+  },
+  {
+    "alias": "Toronto",
+    "normalizedAlias": "toronto",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YTZ",
+    "priority": 40
+  },
+  {
+    "alias": "Toronto Pearson International Airport",
+    "normalizedAlias": "toronto pearson international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YYZ",
+    "priority": 60
+  },
+  {
+    "alias": "TPA",
+    "normalizedAlias": "tpa",
+    "targetType": "AIRPORT",
+    "targetId": "airport:TPA",
+    "priority": 100
+  },
+  {
+    "alias": "TUL",
+    "normalizedAlias": "tul",
+    "targetType": "AIRPORT",
+    "targetId": "airport:TUL",
+    "priority": 100
+  },
+  {
+    "alias": "Tulsa",
+    "normalizedAlias": "tulsa",
+    "targetType": "AIRPORT",
+    "targetId": "airport:TUL",
+    "priority": 70
+  },
+  {
+    "alias": "Tulsa International Airport",
+    "normalizedAlias": "tulsa international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:TUL",
+    "priority": 70
+  },
+  {
+    "alias": "TYO",
+    "normalizedAlias": "tyo",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 98
+  },
+  {
+    "alias": "Vasco da Gama",
+    "normalizedAlias": "vasco da gama",
+    "targetType": "AIRPORT",
+    "targetId": "airport:GOI",
+    "priority": 60
+  },
+  {
+    "alias": "VCP",
+    "normalizedAlias": "vcp",
+    "targetType": "AIRPORT",
+    "targetId": "airport:VCP",
+    "priority": 100
+  },
+  {
+    "alias": "viracopos",
+    "normalizedAlias": "viracopos",
+    "targetType": "AIRPORT",
+    "targetId": "airport:VCP",
+    "priority": 76
+  },
+  {
+    "alias": "Viracopos International Airport",
+    "normalizedAlias": "viracopos international airport",
+    "targetType": "AIRPORT",
+    "targetId": "airport:VCP",
+    "priority": 76
+  },
+  {
+    "alias": "waterloo",
+    "normalizedAlias": "waterloo",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YKF",
+    "priority": 40
+  },
+  {
+    "alias": "West Palm Beach",
+    "normalizedAlias": "west palm beach",
+    "targetType": "AIRPORT",
+    "targetId": "airport:PBI",
+    "priority": 60
+  },
+  {
+    "alias": "YHM",
+    "normalizedAlias": "yhm",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YHM",
+    "priority": 100
+  },
+  {
+    "alias": "YKF",
+    "normalizedAlias": "ykf",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YKF",
+    "priority": 100
+  },
+  {
+    "alias": "YTZ",
+    "normalizedAlias": "ytz",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YTZ",
+    "priority": 100
+  },
+  {
+    "alias": "YXU",
+    "normalizedAlias": "yxu",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YXU",
+    "priority": 100
+  },
+  {
+    "alias": "YYZ",
+    "normalizedAlias": "yyz",
+    "targetType": "AIRPORT",
+    "targetId": "airport:YYZ",
+    "priority": 100
+  },
+  {
+    "alias": "Zaventem",
+    "normalizedAlias": "zaventem",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BRU",
+    "priority": 88
+  },
+  {
+    "alias": "chandigarh",
+    "targetId": "airport:IXC",
+    "targetType": "AIRPORT",
+    "priority": 80,
+    "normalizedAlias": "chandigarh"
+  },
+  {
+    "alias": "ixc",
+    "targetId": "airport:IXC",
+    "targetType": "AIRPORT",
+    "priority": 80,
+    "normalizedAlias": "ixc"
+  },
+  {
+    "alias": "mohali",
+    "targetId": "airport:IXC",
+    "targetType": "AIRPORT",
+    "priority": 80,
+    "normalizedAlias": "mohali"
+  },
+  {
+    "alias": "tokio",
+    "normalizedAlias": "tokio",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 98
+  }
+]

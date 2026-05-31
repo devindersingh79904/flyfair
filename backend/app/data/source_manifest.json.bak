@@ -1,0 +1,19 @@
+{
+  "source": "OurAirports CSV uploads + curated aliases/city/region mappings",
+  "inputFiles": [
+    "airports.csv",
+    "countries.csv",
+    "regions.csv"
+  ],
+  "outputFiles": [
+    "airports.json",
+    "city_groups.json",
+    "regions.json",
+    "aliases.json",
+    "countries.json"
+  ],
+  "notes": [
+    "This is a curated prototype dataset for the take-home failure cases, not a full production global index.",
+    "Runtime search should load these JSON files into memory and use deterministic ranking before RapidFuzz fallback."
+  ]
+}

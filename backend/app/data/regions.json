@@ -1,0 +1,69 @@
+[
+  {
+    "id": "region:us-hi",
+    "displayName": "Hawaii",
+    "region": "Hawaii",
+    "regionCode": "US-HI",
+    "country": "United States",
+    "countryCode": "US",
+    "airportIatas": [
+      "HNL",
+      "OGG",
+      "KOA",
+      "LIH"
+    ],
+    "aliases": [
+      "hawaii",
+      "hawaiʻi",
+      "maui",
+      "oahu",
+      "kauai",
+      "big island"
+    ],
+    "priority": 92,
+    "searchText": "hawaii hawaii united states hawaii hawai`i maui oahu kauai big island"
+  },
+  {
+    "id": "region:us-fl",
+    "displayName": "Florida",
+    "region": "Florida",
+    "regionCode": "US-FL",
+    "country": "United States",
+    "countryCode": "US",
+    "airportIatas": [
+      "MIA",
+      "MCO",
+      "TPA",
+      "FLL",
+      "JAX",
+      "PBI"
+    ],
+    "aliases": [
+      "florida",
+      "fl"
+    ],
+    "priority": 92,
+    "searchText": "florida florida united states florida fl"
+  },
+  {
+    "id": "region:ca-on",
+    "displayName": "Ontario",
+    "region": "Ontario",
+    "regionCode": "CA-ON",
+    "country": "Canada",
+    "countryCode": "CA",
+    "airportIatas": [
+      "YYZ",
+      "YTZ",
+      "YHM",
+      "YKF",
+      "YXU"
+    ],
+    "aliases": [
+      "ontario",
+      "ontario canada"
+    ],
+    "priority": 86,
+    "searchText": "ontario ontario canada ontario ontario canada"
+  }
+]

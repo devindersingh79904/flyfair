@@ -1,0 +1,183 @@
+[
+  {
+    "id": "city_group:london-gb",
+    "code": "LON",
+    "displayName": "London",
+    "city": "London",
+    "region": "England",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "airportIatas": [
+      "LHR",
+      "LGW",
+      "STN",
+      "LCY",
+      "LTN"
+    ],
+    "aliases": [
+      "london",
+      "lon",
+      "london uk",
+      "london united kingdom"
+    ],
+    "priority": 100,
+    "searchText": "lon london london england united kingdom london lon london uk london united kingdom"
+  },
+  {
+    "id": "city_group:london-ca",
+    "code": null,
+    "displayName": "London",
+    "city": "London",
+    "region": "Ontario",
+    "country": "Canada",
+    "countryCode": "CA",
+    "airportIatas": [
+      "YXU"
+    ],
+    "aliases": [
+      "london ontario",
+      "london canada"
+    ],
+    "priority": 45,
+    "searchText": "london london ontario canada london ontario london canada"
+  },
+  {
+    "id": "city_group:london-us-ky",
+    "code": null,
+    "displayName": "London",
+    "city": "London",
+    "region": "Kentucky",
+    "country": "United States",
+    "countryCode": "US",
+    "airportIatas": [
+      "LOZ"
+    ],
+    "aliases": [
+      "london kentucky",
+      "london ky"
+    ],
+    "priority": 25,
+    "searchText": "london london kentucky united states london kentucky london ky"
+  },
+  {
+    "id": "city_group:tokyo-jp",
+    "code": "TYO",
+    "displayName": "Tokyo",
+    "city": "Tokyo",
+    "region": "Tokyo",
+    "country": "Japan",
+    "countryCode": "JP",
+    "airportIatas": [
+      "HND",
+      "NRT"
+    ],
+    "aliases": [
+      "tokyo",
+      "\u6771\u4eac",
+      "tyo"
+    ],
+    "priority": 100,
+    "searchText": "tyo tokyo tokyo tokyo japan tokyo Dong Jing tyo"
+  },
+  {
+    "id": "city_group:beijing-cn",
+    "code": "BJS",
+    "displayName": "Beijing",
+    "city": "Beijing",
+    "region": "Beijing Municipality",
+    "country": "China",
+    "countryCode": "CN",
+    "airportIatas": [
+      "PEK",
+      "PKX"
+    ],
+    "aliases": [
+      "beijing",
+      "\u5317\u4eac",
+      "peking",
+      "bjs"
+    ],
+    "priority": 100,
+    "searchText": "bjs beijing beijing beijing municipality china beijing Bei Jing peking bjs"
+  },
+  {
+    "id": "city_group:seoul-kr",
+    "code": "SEL",
+    "displayName": "Seoul",
+    "city": "Seoul",
+    "region": "Seoul",
+    "country": "South Korea",
+    "countryCode": "KR",
+    "airportIatas": [
+      "ICN",
+      "GMP"
+    ],
+    "aliases": [
+      "seoul",
+      "\uc11c\uc6b8",
+      "sel"
+    ],
+    "priority": 100,
+    "searchText": "sel seoul seoul seoul south korea seoul seoul sel"
+  },
+  {
+    "id": "city_group:sao-paulo-br",
+    "code": "SAO",
+    "displayName": "S\u00e3o Paulo",
+    "city": "S\u00e3o Paulo",
+    "region": "S\u00e3o Paulo",
+    "country": "Brazil",
+    "countryCode": "BR",
+    "airportIatas": [
+      "GRU",
+      "CGH",
+      "VCP"
+    ],
+    "aliases": [
+      "sao paulo",
+      "s\u00e3o paulo",
+      "sao",
+      "sampa"
+    ],
+    "priority": 100,
+    "searchText": "sao sao paulo sao paulo sao paulo brazil sao paulo sao paulo sao sampa"
+  },
+  {
+    "id": "city_group:rome-it",
+    "code": "ROM",
+    "displayName": "Rome",
+    "city": "Rome",
+    "region": "Lazio",
+    "country": "Italy",
+    "countryCode": "IT",
+    "airportIatas": [
+      "FCO",
+      "CIA"
+    ],
+    "aliases": [
+      "rome",
+      "roma",
+      "rom"
+    ],
+    "priority": 100,
+    "searchText": "rom rome rome lazio italy rome roma rom"
+  },
+  {
+    "id": "city_group:goa-in",
+    "code": null,
+    "displayName": "Goa",
+    "city": "Goa",
+    "region": "Goa",
+    "country": "India",
+    "countryCode": "IN",
+    "airportIatas": [
+      "GOI",
+      "GOX"
+    ],
+    "aliases": [
+      "goa"
+    ],
+    "priority": 82,
+    "searchText": "goa goa goa india goa"
+  }
+]

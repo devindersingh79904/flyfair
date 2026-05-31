@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: hsl(222, 47%, 4%);
+  --panel-bg: hsla(223, 47%, 8%, 0.7);
+  --panel-border: hsla(223, 47%, 20%, 0.4);
+  --text-primary: hsl(210, 40%, 98%);
+  --text-secondary: hsl(215, 20%, 75%);
+  --text-muted: hsl(217, 10%, 55%);
+  
+  --primary-glow: linear-gradient(135deg, hsl(260, 85%, 60%) 0%, hsl(210, 100%, 50%) 100%);
+  --primary-color: hsl(230, 80%, 65%);
+  --hover-bg: hsla(223, 47%, 16%, 0.6);
+  
+  --badge-airport-bg: hsla(142, 70%, 15%, 0.5);
+  --badge-airport-fg: hsl(142, 76%, 70%);
+  --badge-city-bg: hsla(217, 90%, 15%, 0.5);
+  --badge-city-fg: hsl(217, 95%, 80%);
+  --badge-region-bg: hsla(280, 70%, 15%, 0.5);
+  --badge-region-fg: hsl(280, 80%, 80%);
+  
+  --font-main: 'Outfit', sans-serif;
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --shadow-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --border-radius-lg: 16px;
+  --border-radius-md: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253, 80%, 12%, 0.4) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(213, 80%, 12%, 0.4) 0px, transparent 50%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App container */
+.app-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Styles */
+.app-header {
+  text-align: center;
+  margin-bottom: 50px;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.app-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: var(--primary-glow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.app-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Main layouts */
+.search-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+@media (max-width: 768px) {
+  .search-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.search-card {
+  background: var(--panel-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow-glow);
+  border-radius: var(--border-radius-lg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.search-card:hover {
+  border-color: hsla(223, 47%, 30%, 0.6);
+  transform: translateY(-2px);
+}
+
+/* Search Box Form Control */
+.search-box-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.search-box-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.input-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.search-box-input {
+  width: 100%;
+  padding: 16px 45px 16px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-md);
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.search-box-input:focus {
+  border-color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 15px 0 rgba(114, 46, 209, 0.2);
+}
+
+.clear-btn {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.clear-btn:hover {
+  color: var(--text-primary);
+}
+
+/* Dropdown styling */
+.search-result-dropdown {
+  position: absolute;
+  top: 105%;
+  left: 0;
+  width: 100%;
+  background: hsl(223, 47%, 7%);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--border-radius-md);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 1000;
+  list-style: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  animation: slideDown 0.2s ease-out;
+}
+
+.search-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.search-result-row:last-child {
+  border-bottom: none;
+}
+
+.search-result-row:hover {
+  background: var(--hover-bg);
+}
+
+.search-result-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-result-name {
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.search-result-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.search-result-debug {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.debug-badge {
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.match-reason {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.match-score {
+  background: rgba(114, 46, 209, 0.1);
+  color: hsl(260, 85%, 75%);
+  border: 1px solid rgba(114, 46, 209, 0.2);
+}
+
+.search-result-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Badges */
+.type-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.badge-airport {
+  background: var(--badge-airport-bg);
+  color: var(--badge-airport-fg);
+  border: 1px solid rgba(142, 76, 70, 0.2);
+}
+
+.badge-city-group {
+  background: var(--badge-city-bg);
+  color: var(--badge-city-fg);
+  border: 1px solid rgba(217, 95, 80, 0.2);
+}
+
+.badge-region-group {
+  background: var(--badge-region-bg);
+  color: var(--badge-region-fg);
+  border: 1px solid rgba(280, 80, 80, 0.2);
+}
+
+.iata-codes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+  max-width: 150px;
+}
+
+.iata-pill {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Selected Location Card Display */
+.selected-location-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.card-empty {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-style: dashed;
+  min-height: 180px;
+  color: var(--text-muted);
+}
+
+.card-empty .empty-text {
+  font-size: 0.95rem;
+  font-weight: 300;
+  max-width: 250px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title-prefix {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.location-name {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.location-details {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.airports-section {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.section-title {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.airports-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 120px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.airport-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.iata-indicator {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: rgba(114, 46, 209, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.airport-item-name {
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-footer-debug {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.debug-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.debug-divider {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.05);
+}
+
+/* Spinner and Status states */
+.spinner {
+  position: absolute;
+  right: 15px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.search-box-error {
+  font-size: 0.85rem;
+  color: hsl(0, 85%, 65%);
+  margin-top: 4px;
+}
+
+.search-box-empty {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+  border-radius: var(--border-radius-md);
+  border: 1px dashed rgba(255, 255, 255, 0.05);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Custom Scrollbars */
+.search-result-dropdown::-webkit-scrollbar,
+.airports-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-result-dropdown::-webkit-scrollbar-track,
+.airports-list::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.search-result-dropdown::-webkit-scrollbar-thumb,
+.airports-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.search-result-dropdown::-webkit-scrollbar-thumb:hover,
+.airports-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Keyframes */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* Nested Search Results */
+.parent-group-row {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.parent-group-row:hover {
+  background: hsla(223, 47%, 20%, 0.6);
+}
+
+.child-airport-row {
+  padding-left: 28px;
+  background: transparent;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.child-airport-row:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.child-airport-row:hover {
+  background: hsla(223, 47%, 15%, 0.4);
+}
+
+.indentation-guide {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+.group-code-badge,
+.iata-code-badge {
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-right: 6px;
+}
+
+.group-code-badge {
+  color: hsl(280, 80%, 80%);
+}
+
+.exact-text {
+  font-weight: 500;
+  color: hsl(142, 76%, 70%);
+}
