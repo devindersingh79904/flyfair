@@ -39,6 +39,8 @@ async def lifespan(app: FastAPI):
     # Store reference on FastAPI state for Dependency Injection retrieval
     app.state.search_service = search_service
     logger.info("Search service and in-memory indexes built.")
+    logger.info(f"Environment: {settings.APP_ENV}")
+    logger.info(f"Allowed CORS Origins: {settings.BACKEND_CORS_ORIGINS}")
     yield
     logger.info("Terminating application state...")
 

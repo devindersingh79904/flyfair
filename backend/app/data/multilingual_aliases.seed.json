@@ -1,0 +1,392 @@
+[
+  {
+    "alias": "北京",
+    "normalizedAlias": "北京",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:beijing-cn",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "伦敦",
+    "normalizedAlias": "伦敦",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "东京",
+    "normalizedAlias": "东京",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "迪拜",
+    "normalizedAlias": "迪拜",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "德里",
+    "normalizedAlias": "德里",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DEL",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "孟买",
+    "normalizedAlias": "孟买",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BOM",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "班加罗尔",
+    "normalizedAlias": "班加罗尔",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BLR",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "新加坡",
+    "normalizedAlias": "新加坡",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "AIRPORT",
+    "targetId": "airport:SIN",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "巴黎",
+    "normalizedAlias": "巴黎",
+    "language": "zh",
+    "script": "Han",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CDG",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "東京",
+    "normalizedAlias": "東京",
+    "language": "ja",
+    "script": "Kanji",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "ロンドン",
+    "normalizedAlias": "ロンドン",
+    "language": "ja",
+    "script": "Katakana",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "ドバイ",
+    "normalizedAlias": "ドバイ",
+    "language": "ja",
+    "script": "Katakana",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "シンガポール",
+    "normalizedAlias": "シンガポール",
+    "language": "ja",
+    "script": "Katakana",
+    "targetType": "AIRPORT",
+    "targetId": "airport:SIN",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "パリ",
+    "normalizedAlias": "パリ",
+    "language": "ja",
+    "script": "Katakana",
+    "targetType": "AIRPORT",
+    "targetId": "airport:CDG",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "दिल्ली",
+    "normalizedAlias": "दिल्ली",
+    "language": "hi",
+    "script": "Devanagari",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DEL",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "मुंबई",
+    "normalizedAlias": "मुंबई",
+    "language": "hi",
+    "script": "Devanagari",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BOM",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "बेंगलुरु",
+    "normalizedAlias": "बेंगलुरु",
+    "language": "hi",
+    "script": "Devanagari",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BLR",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "बैंगलोर",
+    "normalizedAlias": "बैंगलोर",
+    "language": "hi",
+    "script": "Devanagari",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BLR",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "दुबई",
+    "normalizedAlias": "दुबई",
+    "language": "hi",
+    "script": "Devanagari",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "लंदन",
+    "normalizedAlias": "लंदन",
+    "language": "hi",
+    "script": "Devanagari",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "टोक्यो",
+    "normalizedAlias": "टोक्यो",
+    "language": "hi",
+    "script": "Devanagari",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "सिंगापुर",
+    "normalizedAlias": "सिंगापुर",
+    "language": "hi",
+    "script": "Devanagari",
+    "targetType": "AIRPORT",
+    "targetId": "airport:SIN",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "دبي",
+    "normalizedAlias": "دبي",
+    "language": "ar",
+    "script": "Arabic",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "لندن",
+    "normalizedAlias": "لندن",
+    "language": "ar",
+    "script": "Arabic",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "طوكيو",
+    "normalizedAlias": "طوكيو",
+    "language": "ar",
+    "script": "Arabic",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "بكين",
+    "normalizedAlias": "بكين",
+    "language": "ar",
+    "script": "Arabic",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:beijing-cn",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "دلهي",
+    "normalizedAlias": "دلهي",
+    "language": "ar",
+    "script": "Arabic",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DEL",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "مومباي",
+    "normalizedAlias": "مومباي",
+    "language": "ar",
+    "script": "Arabic",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BOM",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "سنغافورة",
+    "normalizedAlias": "سنغافورة",
+    "language": "ar",
+    "script": "Arabic",
+    "targetType": "AIRPORT",
+    "targetId": "airport:SIN",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "서울",
+    "normalizedAlias": "서울",
+    "language": "ko",
+    "script": "Hangul",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:seoul-kr",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "도쿄",
+    "normalizedAlias": "도쿄",
+    "language": "ko",
+    "script": "Hangul",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:tokyo-jp",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "런던",
+    "normalizedAlias": "런던",
+    "language": "ko",
+    "script": "Hangul",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "두바이",
+    "normalizedAlias": "두바이",
+    "language": "ko",
+    "script": "Hangul",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "Dubay",
+    "normalizedAlias": "dubay",
+    "language": "en",
+    "script": "Latin",
+    "targetType": "AIRPORT",
+    "targetId": "airport:DXB",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "Londun",
+    "normalizedAlias": "londun",
+    "language": "en",
+    "script": "Latin",
+    "targetType": "CITY_GROUP",
+    "targetId": "city_group:london-gb",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "Москва",
+    "normalizedAlias": "Москва",
+    "language": "ru",
+    "script": "Cyrillic",
+    "targetType": "AIRPORT",
+    "targetId": "airport:SVO",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "Киев",
+    "normalizedAlias": "Киев",
+    "language": "ru",
+    "script": "Cyrillic",
+    "targetType": "AIRPORT",
+    "targetId": "airport:KBP",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "Київ",
+    "normalizedAlias": "Київ",
+    "language": "uk",
+    "script": "Cyrillic",
+    "targetType": "AIRPORT",
+    "targetId": "airport:KBP",
+    "priority": 95,
+    "source": "manual_seed"
+  },
+  {
+    "alias": "กรุงเทพ",
+    "normalizedAlias": "กรุงเทพ",
+    "language": "th",
+    "script": "Thai",
+    "targetType": "AIRPORT",
+    "targetId": "airport:BKK",
+    "priority": 95,
+    "source": "manual_seed"
+  }
+]

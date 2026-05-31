@@ -42,11 +42,16 @@ EVAL_CASES = [
     ("City code - LON", "LON", "city_group:london-gb", None),
     ("City code - TYO", "TYO", "city_group:tokyo-jp", None),
     ("City code - SEL", "SEL", "city_group:seoul-kr", None),
-    # --- Alias Exact — multilingual (Layer 3) ---
     ("CJK alias - 東京 → Tokyo city group", "東京", "city_group:tokyo-jp", None),
     ("CJK alias - 北京 → Beijing city group", "北京", "city_group:beijing-cn", None),
+    ("CJK alias - 伦敦 → London GB city group", "伦敦", "city_group:london-gb", None),
     ("Korean alias - 서울 → Seoul city group", "서울", "city_group:seoul-kr", None),
     ("Arabic alias - دبي → DXB", "دبي", "airport:DXB", None),
+    ("Hindi alias - दिल्ली → DEL", "दिल्ली", "airport:DEL", None),
+    ("Hindi alias - मुंबई → BOM", "मुंबई", "airport:BOM", None),
+    ("Hindi alias - बेंगलुरु → BLR", "बेंगलुरु", "airport:BLR", None),
+    ("Cyrillic alias - Москва → SVO", "Москва", "airport:SVO", None),
+    ("Thai alias - กรุงเทพ → BKK", "กรุงเทพ", "airport:BKK", None),
     # --- Accent / Unicode folding ---
     ("Accent fold - Sao Paulo → city group", "Sao Paulo", "city_group:sao-paulo-br", None),
     ("Native accent - São Paulo → city group", "São Paulo", "city_group:sao-paulo-br", None),
@@ -82,12 +87,12 @@ EVAL_CASES = [
     ("Country - United -> matches GB/US/AE", "United", None, lambda r: len(r) > 0 and any([c.countryCode in ["GB", "US", "AE"] for c in r])),
 ]
 
-assert len(EVAL_CASES) == 35, f"Expected 35 cases, got {len(EVAL_CASES)}"
+assert len(EVAL_CASES) == 41, f"Expected 41 cases, got {len(EVAL_CASES)}"
 
 
 def run_eval():
     print("=" * 68)
-    print("  Fly Fairly Airport Search — Evaluation Suite (29 cases)")
+    print("  Fly Fairly Airport Search — Evaluation Suite (41 cases)")
     print(f"  Data directory: {DATA_DIR}")
     print("=" * 68)
 

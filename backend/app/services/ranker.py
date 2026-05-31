@@ -1,6 +1,6 @@
 from typing import List, Dict, Any
 from app.models.search_models import SearchResult
-from app.core.constants import BASE_SCORES, MatchReason
+from app.core.constants import BASE_SCORES, MatchReason, ResultType
 
 def calculate_score(
     base_reason: MatchReason,
@@ -43,3 +43,32 @@ def deduplicate_and_sort(candidates: List[SearchResult]) -> List[SearchResult]:
     sorted_results.sort(key=lambda x: (-x.score, type_rank.get(x.type.value, 4), x.displayName, x.id))
     
     return sorted_results
+
+def suppress_group_child_airport_duplicates(results: List[SearchResult]) -> List[SearchResult]:
+    """
+    Suppresses top-level AIRPORT results if they are already nested inside a 
+    REGION_GROUP or CITY_GROUP present in the same result set.
+    """
+    child_iatas = set()
+
+    for result in results:
+        if result.type in (ResultType.CITY_GROUP, ResultType.REGION_GROUP):
+            for airport in result.airports:
+                if airport.iata:
+                    child_iatas.add(airport.iata.upper())
+
+    filtered = []
+    for result in results:
+        if result.type == ResultType.AIRPORT:
+            airport_iata = None
+            if result.airports:
+                airport_iata = result.airports[0].iata
+            elif getattr(result, 'code', None):
+                airport_iata = getattr(result, 'code')
+
+            if airport_iata and airport_iata.upper() in child_iatas:
+                continue
+
+        filtered.append(result)
+
+    return filtered

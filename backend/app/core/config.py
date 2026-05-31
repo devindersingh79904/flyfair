@@ -16,6 +16,17 @@ class Settings(BaseSettings):
     BACKEND_CORS_ORIGINS: Union[str, List[str]] = ["http://localhost:5173", "http://127.0.0.1:5173"]
     LOG_LEVEL: str = "INFO"
 
+    # Search behavior
+    ENABLE_FUZZY_SEARCH: bool = True
+    ENABLE_SUBSTRING_MATCH: bool = True
+    ENABLE_SUBSEQUENCE_MATCH: bool = True
+    FUZZY_MIN_QUERY_LENGTH: int = 4
+    FUZZY_THRESHOLD: float = 82.0
+    PREFIX_MIN_QUERY_LENGTH: int = 1
+    SUBSTRING_MIN_QUERY_LENGTH: int = 2
+    SUBSEQUENCE_MIN_QUERY_LENGTH: int = 3
+    MAX_SEARCH_RESULTS: int = 20
+    DEFAULT_SEARCH_LIMIT: int = 10
     model_config = SettingsConfigDict(
         env_file=ENV_FILE_PATH,
         env_file_encoding="utf-8",

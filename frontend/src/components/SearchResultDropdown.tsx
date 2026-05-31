@@ -49,6 +49,15 @@ export const SearchResultDropdown: React.FC<SearchResultDropdownProps> = ({
     );
   };
 
+  const renderedGroupChildIatas = new Set<string>();
+  results.forEach(r => {
+    if (r.type === "CITY_GROUP" || r.type === "REGION_GROUP") {
+      r.airports.forEach(a => {
+        if (a.iata) renderedGroupChildIatas.add(a.iata.toUpperCase());
+      });
+    }
+  });
+
   return (
     <ul className="search-result-dropdown">
       {results.map((result) => {
@@ -94,6 +103,11 @@ export const SearchResultDropdown: React.FC<SearchResultDropdownProps> = ({
               ))}
             </React.Fragment>
           );
+        }
+
+        const iata = (result.airports[0]?.iata || result.code || "").toUpperCase();
+        if (result.type === "AIRPORT" && iata && renderedGroupChildIatas.has(iata)) {
+          return null;
         }
 
         return (

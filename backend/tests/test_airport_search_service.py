@@ -22,6 +22,11 @@ def test_search_hawaii(search_service):
     iatas = [ap.iata for ap in top.airports]
     for code in ["HNL", "OGG", "KOA", "LIH"]:
         assert code in iatas
+    
+    # Assert child airports are NOT repeated as top-level results
+    top_level_ids = [r.id for r in res.results]
+    for code in ["HNL", "OGG", "KOA", "LIH"]:
+        assert f"airport:{code}" not in top_level_ids
 
 def test_search_bali(search_service):
     # 2. q=Bali => DPS first, Balikpapan (BPN) is not first
@@ -108,7 +113,7 @@ def test_search_london_typo(search_service):
     top = res.results[0]
     assert "London" in top.displayName
     assert "GB" in top.countryCode or "United Kingdom" in top.country
-    assert top.matchReason in (MatchReason.FUZZY_CITY, MatchReason.FUZZY_AIRPORT)
+    assert top.matchReason in (MatchReason.FUZZY_CITY, MatchReason.FUZZY_AIRPORT, MatchReason.SUBSEQUENCE_MATCH)
 
 def test_search_london_code(search_service):
     # 14. q=LON => London UK first (CITY_CODE_EXACT)
@@ -120,6 +125,11 @@ def test_search_london_code(search_service):
     iatas = [ap.iata for ap in top.airports]
     for code in ["LHR", "LGW", "STN", "LCY", "LTN"]:
         assert code in iatas
+
+    # Assert child airports are NOT repeated as top-level results
+    top_level_ids = [r.id for r in res.results]
+    for code in ["LHR", "LGW", "STN", "LCY", "LTN"]:
+        assert f"airport:{code}" not in top_level_ids
 
 def test_search_london_disambiguation(search_service):
     # 15. q=London => London UK group first, Ontario second, Kentucky third
@@ -273,3 +283,15 @@ def test_no_fuzzy_for_short_queries(search_service):
     res_ix, _ = search_service.search("ix", limit=10)
     for r in res_ix.results:
         assert "FUZZY" not in str(r.matchReason)
+
+def test_direct_airport_search_hnl(search_service):
+    # Direct search for HNL should return HNL as top-level AIRPORT
+    res, _ = search_service.search("HNL", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "airport:HNL"
+
+def test_direct_airport_search_lhr(search_service):
+    # Direct search for LHR should return LHR as top-level AIRPORT
+    res, _ = search_service.search("LHR", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "airport:LHR"

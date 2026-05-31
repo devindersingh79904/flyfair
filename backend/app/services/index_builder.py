@@ -80,6 +80,8 @@ class IndexBuilder:
                     tokens = set()
                     if ap.normalizedName:
                         tokens.update(ap.normalizedName.split())
+                    if ap.normalizedCity:
+                        tokens.update(ap.normalizedCity.split())
                     ap.normalizedTokens = list(tokens)
 
                     self.airport_by_id[ap.id] = ap
@@ -172,6 +174,31 @@ class IndexBuilder:
                             self.alias_index[key] = []
                         if alias_entry not in self.alias_index[key]:
                             self.alias_index[key].append(alias_entry)
+                            
+            # 5.5 Load Multilingual Aliases
+            try:
+                multi_aliases_path = self._get_file_path("multilingual_aliases.json")
+                with open(multi_aliases_path, "r", encoding="utf-8") as f:
+                    multi_aliases_data = json.load(f)
+                    for item in multi_aliases_data:
+                        alias_str = item["alias"].strip().lower()
+                        normalized_alias = item["normalizedAlias"].strip().lower()
+                        
+                        alias_entry = {
+                            "targetType": item["targetType"],
+                            "targetId": item["targetId"],
+                            "priority": item["priority"]
+                        }
+                        
+                        for key in (alias_str, normalized_alias):
+                            if not key:
+                                continue
+                            if key not in self.alias_index:
+                                self.alias_index[key] = []
+                            if alias_entry not in self.alias_index[key]:
+                                self.alias_index[key].append(alias_entry)
+            except DataLoadException:
+                logger.warning("multilingual_aliases.json not found, skipping.")
 
             # 6. Inject Generated Aliases from Entities
             def inject_aliases(aliases_list, target_id, target_type, priority):

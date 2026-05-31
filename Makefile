@@ -68,6 +68,9 @@ clean: ## Remove build artifacts and caches
 generate-data: ## Generate airport JSON from raw CSV
 	cd $(BACKEND_DIR) && $(PYTHON) scripts/generate_airport_data.py
 
+generate-multilingual-data: ## Generate multilingual aliases from GeoNames
+	cd $(BACKEND_DIR) && $(PYTHON) scripts/generate_multilingual_aliases.py
+
 ##@ Deployment
 zip: ## Package project for submission
-	zip -r submission.zip . -x "*.bak" "*assignment*" "*backend/raw_data*" "*.git*" "*node_modules*" "*__pycache__*" "*.pytest_cache*" "*.venv*" "*venv*" "*dist*" "*build*" "*.env*" "*.DS_Store*" "*.idea*" "*.vscode*"
+	zip -r submission.zip . -x "*.bak" "*assignment*" "*backend/raw_data*" "*.git*" "*node_modules*" "*__pycache__*" "*.pytest_cache*" "*.venv*" "*venv*" "*dist*" "*build*" "*.env*" "*.DS_Store*" "*.idea*" "*.vscode*" "*backend/app/data/*.txt"

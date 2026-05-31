@@ -7,6 +7,8 @@ class NormalizedQuery(BaseModel):
     lower: str
     normalized: str
     upper: str
+    rawNormalized: str
+    latinFoldedNormalized: str
 
 class SearchResultAirport(BaseModel):
     id: Optional[str] = None

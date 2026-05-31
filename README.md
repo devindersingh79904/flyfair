@@ -6,7 +6,8 @@ A full-stack product-minded airport search implementation designed for high rele
 - **In-Memory Search**: Lightning-fast, robust search using RapidFuzz for fuzzy string matching. No external database required.
 - **Product-Minded Relevance**: Prioritizes major hubs, exact IATA/City Code matches, and curated aliases (e.g., CJK support, native accents).
 - **Country and Region Search**: Queries like "United Kingdom", "UK", "UAE", or "United" gracefully fall back to matching the country and serving the top relevant commercial airports and city groups.
-- **Hierarchical City Groups**: Searches for a city (like Tokyo or London) return a grouped parent row with child airports below it.
+- **Multilingual Support**: Fully deterministic, offline multi-language support (English, Chinese, Japanese, Hindi, Arabic, Korean, and Latin diacritics) powered by static `multilingual_aliases.json`. No runtime translation APIs required!
+- **Hierarchical Groups & Duplicate Suppression**: Searches for a city (like Tokyo or London) or a region return a grouped parent row with child airports nested below it. Child airports are intrinsically suppressed from appearing again as separate top-level rows to ensure a clean UI. Direct airport searches still return exact airports normally.
 - **One-Time Data Generation**: Ships with a Python script to compile static JSON lists directly from OurAirports CSV data. Includes ~9,000 valid commercial airports.
 
 ## Prerequisites
@@ -19,7 +20,25 @@ The application relies on `.env` files for configuration. You should create them
 
 **`backend/.env.example`**:
 ```env
+APP_NAME=Fly Fairly Airport Search API
+APP_ENV=local
+APP_HOST=0.0.0.0
+APP_PORT=8000
+API_PREFIX=/api/v1
 BACKEND_CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+LOG_LEVEL=INFO
+
+# Search behavior
+ENABLE_FUZZY_SEARCH=true
+ENABLE_SUBSTRING_MATCH=true
+ENABLE_SUBSEQUENCE_MATCH=true
+FUZZY_MIN_QUERY_LENGTH=4
+FUZZY_THRESHOLD=82
+PREFIX_MIN_QUERY_LENGTH=1
+SUBSTRING_MIN_QUERY_LENGTH=2
+SUBSEQUENCE_MIN_QUERY_LENGTH=3
+MAX_SEARCH_RESULTS=20
+DEFAULT_SEARCH_LIMIT=10
 ```
 
 **`frontend/.env.example`**:
