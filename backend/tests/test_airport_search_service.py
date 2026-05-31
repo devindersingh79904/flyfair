@@ -295,3 +295,44 @@ def test_direct_airport_search_lhr(search_service):
     res, _ = search_service.search("LHR", limit=10)
     assert len(res.results) > 0
     assert res.results[0].id == "airport:LHR"
+
+def test_intent_detection_goa(search_service):
+    # Natural query "goa" -> city group first
+    res, _ = search_service.search("goa", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "city_group:goa-in"
+    assert res.results[0].type == ResultType.CITY_GROUP
+    iatas = [ap.iata for ap in res.results[0].airports]
+    assert "GOI" in iatas or "GOX" in iatas
+
+    # Title case "Goa" -> city group first
+    res, _ = search_service.search("Goa", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "city_group:goa-in"
+
+    # Explicit IATA "GOA" -> Genoa airport first
+    res, _ = search_service.search("GOA", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "airport:GOA"
+
+def test_intent_detection_lon_protected(search_service):
+    # Protected city code "LON" -> London city group first (wins over airport IATA)
+    res, _ = search_service.search("LON", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "city_group:london-gb"
+
+    # "lon" -> London city group first
+    res, _ = search_service.search("lon", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "city_group:london-gb"
+
+def test_intent_detection_lhr(search_service):
+    # Explicit "LHR" -> Heathrow first
+    res, _ = search_service.search("LHR", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "airport:LHR"
+
+    # Natural "lhr" -> Heathrow first (no conflict with a city group)
+    res, _ = search_service.search("lhr", limit=10)
+    assert len(res.results) > 0
+    assert res.results[0].id == "airport:LHR"

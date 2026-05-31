@@ -771,6 +771,13 @@ def _match_iata_exact(self, upper_query: str, results: list[SearchResult]) -> No
     results.append(to_airport_result(airport, score, MatchReason.IATA_EXACT, upper_query))
 ```
 
+### 11.1.1 IATA vs Natural Destination Ranking
+
+Search uses raw query casing as a weak intent signal:
+- Uppercase 3-letter queries (e.g. `GOA`, `LHR`) are treated as **explicit IATA intent** and receive the full `IATA_EXACT` base score.
+- Lowercase/title-case queries (e.g. `goa`, `Goa`) are treated as **natural destination text** and receive a score penalty (`IATA_NATURAL_PENALTY`), allowing city groups and curated aliases to naturally outrank the exact IATA airport code.
+- Protected city codes (`PROTECTED_CITY_CODES = {"LON", "TYO", "SEL", "NYC", "PAR", "ROM"}`) bypass this rule. They enforce that city groups always outrank exact IATA airports, even if the query is an explicit uppercase code, as these codes overwhelmingly signify a city group destination.
+
 ---
 
 ## 11.2 City Code Exact Match

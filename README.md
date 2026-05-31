@@ -115,6 +115,10 @@ Try querying the following strings to see the country fallback mechanism:
 - `"UK"` → Alias for United Kingdom, yields London City Group.
 - `"UAE"` → Alias for United Arab Emirates, yields DXB (Dubai).
 - `"United"` → Matches United Kingdom, United States, and United Arab Emirates, yielding the top airports and city groups from these countries.
+- `"goa"` → Natural destination query; yields Goa India City Group.
+- `"GOA"` → Explicit IATA intent query; yields Genoa Cristoforo Colombo Airport (GOA).
+- `"lon"` / `"LON"` → Protected major city code; always yields London City Group.
+- `"LHR"` → Explicit IATA intent; yields London Heathrow.
 
 ## CORS Configuration
 

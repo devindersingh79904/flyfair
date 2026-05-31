@@ -39,6 +39,9 @@ class SearchBounds:
     MAX_LIMIT = 20
     DEFAULT_LIMIT = 10
 
+PROTECTED_CITY_CODES = {"LON", "TYO", "SEL", "NYC", "PAR", "ROM"}
+IATA_NATURAL_PENALTY = 150
+
 BASE_SCORES = {
     MatchReason.IATA_EXACT: 1000,
     MatchReason.ALIAS_EXACT: 980,

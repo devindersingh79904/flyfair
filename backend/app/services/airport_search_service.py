@@ -4,7 +4,7 @@ from typing import List, Dict, Any, Optional
 from rapidfuzz import fuzz
 from app.services.index_builder import IndexBuilder
 from app.services.normalizer import normalize_query, is_subsequence, normalized_contains
-from app.services.ranker import calculate_score, deduplicate_and_sort, suppress_group_child_airport_duplicates
+from app.services.ranker import calculate_score, deduplicate_and_sort, suppress_group_child_airport_duplicates, score_iata_exact
 from app.models.search_models import SearchResult, SearchResultAirport
 from app.models.response_models import SearchResponseData
 from app.models.airport_models import Airport, CityGroup, RegionGroup
@@ -91,9 +91,9 @@ class AirportSearchService:
         if query_len == 0:
             return SearchResponseData(results=[])
 
-        self.collect_iata_exact(q, candidates)
+        self.collect_iata_exact(query_str, q, candidates)
         self.collect_city_code_exact(q, candidates)
-        self.collect_alias_exact(q, candidates)
+        self.collect_alias_exact(query_str, q, candidates)
         self.collect_city_group_exact(q, candidates)
         self.collect_region_exact(q, candidates)
         self.collect_country_exact_or_alias(q, candidates)
@@ -149,11 +149,12 @@ class AirportSearchService:
 
         return SearchResponseData(results=sliced), latency_ms
 
-    def collect_iata_exact(self, q, candidates):
+    def collect_iata_exact(self, raw_query, q, candidates):
         if len(q.upper) == 3:
             ap = self.index.airport_by_iata.get(q.upper)
             if ap:
-                score = calculate_score(MatchReason.IATA_EXACT, ap.commercialPriority)
+                base_score = score_iata_exact(raw_query)
+                score = calculate_score(MatchReason.IATA_EXACT, ap.commercialPriority, override_base_score=base_score)
                 candidates.append(self._build_airport_result(ap, MatchReason.IATA_EXACT, score))
 
     def collect_city_code_exact(self, q, candidates):
@@ -163,22 +164,34 @@ class AirportSearchService:
                 score = calculate_score(MatchReason.CITY_CODE_EXACT, cg.priority)
                 candidates.append(self._build_city_group_result(cg, MatchReason.CITY_CODE_EXACT, score))
 
-    def collect_alias_exact(self, q, candidates):
+    def collect_alias_exact(self, raw_query, q, candidates):
         alias_entries = []
+        # Need a dict to deduplicate entry without tuple comparison issues
+        seen_entries = []
         for key in (q.lower, q.normalized):
             entries = self.index.alias_index.get(key)
             if entries:
                 for entry in entries:
-                    if entry not in alias_entries:
-                        alias_entries.append(entry)
+                    if entry not in seen_entries:
+                        seen_entries.append(entry)
+                        alias_entries.append((key, entry))
             
-        for entry in alias_entries:
+        for matched_key, entry in alias_entries:
             t_id = entry["targetId"]
             t_type = entry["targetType"]
             alias_priority = entry["priority"]
             if t_type == ResultType.AIRPORT.value:
                 ap = self.index.airport_by_id.get(t_id)
-                if ap: candidates.append(self._build_airport_result(ap, MatchReason.ALIAS_EXACT, calculate_score(MatchReason.ALIAS_EXACT, alias_priority)))
+                if ap:
+                    if ap.iata and matched_key == ap.iata.lower():
+                        # The alias matched was just the IATA code. Treat as IATA intent.
+                        base_score = score_iata_exact(raw_query)
+                        score = calculate_score(MatchReason.IATA_EXACT, alias_priority, override_base_score=base_score)
+                        reason = MatchReason.IATA_EXACT
+                    else:
+                        score = calculate_score(MatchReason.ALIAS_EXACT, alias_priority)
+                        reason = MatchReason.ALIAS_EXACT
+                    candidates.append(self._build_airport_result(ap, reason, score))
             elif t_type == ResultType.CITY_GROUP.value:
                 cg = self.index.city_group_by_id.get(t_id)
                 if cg: candidates.append(self._build_city_group_result(cg, MatchReason.ALIAS_EXACT, calculate_score(MatchReason.ALIAS_EXACT, alias_priority)))

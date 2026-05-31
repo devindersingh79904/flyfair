@@ -85,14 +85,19 @@ EVAL_CASES = [
     ("Country - United Arab Emirates -> DXB", "United Arab Emirates", "airport:DXB", None),
     ("Country - USA -> non-empty US results", "USA", None, lambda r: len(r) > 0 and any([c.countryCode == "US" for c in r])),
     ("Country - United -> matches GB/US/AE", "United", None, lambda r: len(r) > 0 and any([c.countryCode in ["GB", "US", "AE"] for c in r])),
+    # --- Intent Casing Rules ---
+    ("Intent - goa -> city group", "goa", "city_group:goa-in", None),
+    ("Intent - Goa -> city group", "Goa", "city_group:goa-in", None),
+    ("Intent - GOA -> airport", "GOA", "airport:GOA", None),
+    ("Intent - LON -> city group (protected)", "LON", "city_group:london-gb", None),
 ]
 
-assert len(EVAL_CASES) == 41, f"Expected 41 cases, got {len(EVAL_CASES)}"
+assert len(EVAL_CASES) == 45, f"Expected 45 cases, got {len(EVAL_CASES)}"
 
 
 def run_eval():
     print("=" * 68)
-    print("  Fly Fairly Airport Search — Evaluation Suite (41 cases)")
+    print("  Fly Fairly Airport Search — Evaluation Suite (45 cases)")
     print(f"  Data directory: {DATA_DIR}")
     print("=" * 68)
 
