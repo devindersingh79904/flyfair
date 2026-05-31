@@ -40,7 +40,11 @@ async def lifespan(app: FastAPI):
     app.state.search_service = search_service
     logger.info("Search service and in-memory indexes built.")
     logger.info(f"Environment: {settings.APP_ENV}")
-    logger.info(f"Allowed CORS Origins: {settings.BACKEND_CORS_ORIGINS}")
+    
+    cors_origins = settings.BACKEND_CORS_ORIGINS
+    cors_allow_credentials = settings.CORS_ALLOW_CREDENTIALS
+    logger.info(f"Allowed CORS Origins: {cors_origins}")
+    logger.info(f"CORS allow credentials: {cors_allow_credentials}")
     yield
     logger.info("Terminating application state...")
 
@@ -53,17 +57,20 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# 1. Register CORS Middleware
+# 1. Register Correlation ID middleware (inner-most custom middleware)
+app.add_middleware(CorrelationIdMiddleware)
+
+# 2. Register CORS Middleware (outermost middleware)
+cors_origins = settings.BACKEND_CORS_ORIGINS
+cors_allow_credentials = settings.CORS_ALLOW_CREDENTIALS
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.BACKEND_CORS_ORIGINS,
-    allow_credentials=True,
+    allow_origins=cors_origins,
+    allow_credentials=cors_allow_credentials,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# 2. Register Correlation ID middleware
-app.add_middleware(CorrelationIdMiddleware)
 
 # 3. Register standard API exception handlers
 app.add_exception_handler(AirportSearchException, airport_search_exception_handler)

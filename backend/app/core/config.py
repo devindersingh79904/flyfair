@@ -40,4 +40,8 @@ class Settings(BaseSettings):
             return [item.strip() for item in v.split(",") if item.strip()]
         return v
 
+    @property
+    def CORS_ALLOW_CREDENTIALS(self) -> bool:
+        return "*" not in self.BACKEND_CORS_ORIGINS
+
 settings = Settings()

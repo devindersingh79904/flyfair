@@ -25,8 +25,19 @@ APP_ENV=local
 APP_HOST=0.0.0.0
 APP_PORT=8000
 API_PREFIX=/api/v1
-BACKEND_CORS_ORIGINS=*
+
+# CORS Origins
+# For local development:
+BACKEND_CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+
+# For quick demo only:
+# BACKEND_CORS_ORIGINS=*
+# When "*" is used, backend automatically disables CORS credentials.
+
+# For production:
+# BACKEND_CORS_ORIGINS=https://flyfair.devinderpanesar.com
 LOG_LEVEL=INFO
+
 
 # Search behavior
 ENABLE_FUZZY_SEARCH=true
@@ -104,3 +115,40 @@ Try querying the following strings to see the country fallback mechanism:
 - `"UK"` → Alias for United Kingdom, yields London City Group.
 - `"UAE"` → Alias for United Arab Emirates, yields DXB (Dubai).
 - `"United"` → Matches United Kingdom, United States, and United Arab Emirates, yielding the top airports and city groups from these countries.
+
+## CORS Configuration
+
+Proper Cross-Origin Resource Sharing (CORS) is enforced by the backend:
+- **Local development:** The frontend usually runs on `http://localhost:5173`. Add this explicitly to `BACKEND_CORS_ORIGINS`.
+- **Production frontend:** You must explicitly whitelist your deployed frontend origin (e.g. `https://flyfair.devinderpanesar.com`) in `BACKEND_CORS_ORIGINS`. This keeps the API secure and allows the browser to send credentials if needed.
+- **Demo / Wildcard:** `BACKEND_CORS_ORIGINS=*` is supported for quick demos. Note that when the backend detects `*`, it automatically sets `allow_credentials=False` because modern browsers reject wildcard origins when credentials (like cookies or auth headers) are included.
+
+If you are updating these variables in a deployed environment like EasyPanel, you must redeploy or restart the backend container for the environment variables to take effect.
+
+You can verify the backend is correctly returning CORS preflight headers with cURL:
+
+```bash
+curl -i -X OPTIONS "https://aiagentstudio-flyfair-backend.ia8ype.easypanel.host/api/v1/airports/search?q=lon&limit=10" \
+  -H "Origin: https://flyfair.devinderpanesar.com" \
+  -H "Access-Control-Request-Method: GET"
+```
+
+You should see `access-control-allow-origin` in the HTTP response headers.
+
+## EasyPanel Deployment Notes
+
+When deploying on EasyPanel, you should adjust the environment settings in the backend service configuration.
+
+**Recommended production environment:**
+```env
+APP_ENV=production
+BACKEND_CORS_ORIGINS=https://flyfair.devinderpanesar.com
+LOG_LEVEL=INFO
+```
+
+**Demo wildcard environment:**
+```env
+BACKEND_CORS_ORIGINS=*
+```
+
+*Note: After changing the environment variables in the EasyPanel UI, you must restart or redeploy the backend service so the changes take effect in the application container.*
