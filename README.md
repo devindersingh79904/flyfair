@@ -6,7 +6,7 @@ A full-stack product-minded airport search implementation designed for high rele
 - **In-Memory Search**: Lightning-fast, robust search using RapidFuzz for fuzzy string matching. No external database required.
 - **Product-Minded Relevance**: Prioritizes major hubs, exact IATA/City Code matches, and curated aliases (e.g., CJK support, native accents).
 - **Country and Region Search**: Queries like "United Kingdom", "UK", "UAE", or "United" gracefully fall back to matching the country and serving the top relevant commercial airports and city groups.
-- **Multilingual Support**: Fully deterministic, offline multi-language support (English, Chinese, Japanese, Hindi, Arabic, Korean, and Latin diacritics) powered by static `multilingual_aliases.json`. No runtime translation APIs required!
+- **Multilingual Support & Fallback**: Fully deterministic, offline multi-language support (English, Chinese, Japanese, Thai, Hindi, Arabic, Korean, and Latin diacritics) powered by static `multilingual_aliases.json`. If no strong local result is found for a non-English/non-Latin query, the engine can optionally fall back to the Google Cloud Translation API to translate the query into English and search again.
 - **Hierarchical Groups & Duplicate Suppression**: Searches for a city (like Tokyo or London) or a region return a grouped parent row with child airports nested below it. Child airports are intrinsically suppressed from appearing again as separate top-level rows to ensure a clean UI. Direct airport searches still return exact airports normally.
 - **One-Time Data Generation**: Ships with a Python script to compile static JSON lists directly from OurAirports CSV data. Includes ~9,000 valid commercial airports.
 
@@ -50,6 +50,17 @@ SUBSTRING_MIN_QUERY_LENGTH=2
 SUBSEQUENCE_MIN_QUERY_LENGTH=3
 MAX_SEARCH_RESULTS=20
 DEFAULT_SEARCH_LIMIT=10
+
+# Translation fallback
+ENABLE_TRANSLATION_FALLBACK=false
+TRANSLATION_PROVIDER=google
+GOOGLE_TRANSLATE_API_KEY=
+GOOGLE_TRANSLATE_TARGET_LANGUAGE=en
+TRANSLATION_MIN_QUERY_LENGTH=2
+TRANSLATION_MAX_QUERY_LENGTH=80
+TRANSLATION_WEAK_RESULT_THRESHOLD=650
+TRANSLATION_CACHE_MAX_SIZE=1000
+TRANSLATION_REQUEST_TIMEOUT_SECONDS=3
 ```
 
 **`frontend/.env.example`**:
@@ -66,6 +77,12 @@ The project comes with generated data. If you want to regenerate it from the raw
 ```bash
 make generate-data
 ```
+
+To regenerate multilingual aliases from GeoNames alternateNames files (e.g. `TH.txt`, `CN.txt`, etc. in `backend/app/data/`):
+```bash
+cd backend && .venv/bin/python scripts/generate_multilingual_aliases.py
+```
+This groups GeoNames rows by `geonameId`, finds IATA codes within each group, and maps all useful non-Latin aliases to the matching airport.
 
 ### 2. Backend Setup
 Install dependencies and run tests:
@@ -119,6 +136,38 @@ Try querying the following strings to see the country fallback mechanism:
 - `"GOA"` → Explicit IATA intent query; yields Genoa Cristoforo Colombo Airport (GOA).
 - `"lon"` / `"LON"` → Protected major city code; always yields London City Group.
 - `"LHR"` → Explicit IATA intent; yields London Heathrow.
+
+### Multilingual Search Examples
+The multilingual alias pipeline groups GeoNames alternateNames by `geonameId`. If a group contains an IATA row, all useful aliases are linked to the matching airport:
+- `"ภูเก็ต"` → Thai alias for Phuket; yields `airport:HKT` (Phuket International Airport).
+- `"ท่าอากาศยานภูเก็ต"` → Thai airport name for Phuket; yields `airport:HKT`.
+- `"กรุงเทพ"` → Thai for Bangkok; yields `airport:BKK` (Suvarnabhumi Airport).
+- `"東京"` → Chinese/Japanese for Tokyo; yields Tokyo City Group.
+- `"서울"` → Korean for Seoul; yields Seoul City Group.
+- `"دبي"` → Arabic for Dubai; yields `airport:DXB`.
+- `"São Paulo"` / `"Sao Paulo"` → Accent-folded; both yield São Paulo City Group.
+
+## Google Translate Fallback
+
+The backend supports an optional runtime translation fallback:
+1. **Local Search First**: The search engine always searches local offline aliases first. No translation API is called if a strong local match (score >= `TRANSLATION_WEAK_RESULT_THRESHOLD`, default `650`) is found.
+2. **Detection & Filter**: Only non-English/non-Latin queries (containing Thai, Han/CJK, Japanese Hiragana/Katakana, Hangul, Arabic, Cyrillic, or Devanagari characters) with length >= `TRANSLATION_MIN_QUERY_LENGTH` (default `2`) are eligible for translation. English, ASCII, and IATA codes (e.g. `LON`, `LHR`, `Goa`) are never translated.
+3. **Execution**: If eligible, the query is translated to English via the Google Cloud Translation API and searched again.
+4. **Caching**: Successful translation results are cached in an in-memory LRU cache (capped at `TRANSLATION_CACHE_MAX_SIZE`, default `1000`) to minimize external API costs.
+5. **Robustness**: If the Google Translate API is down, fails, or credentials are missing, search falls back gracefully without crashing or returning errors.
+
+To enable this feature, configure these variables in `backend/.env`:
+```env
+ENABLE_TRANSLATION_FALLBACK=true
+TRANSLATION_PROVIDER=google
+GOOGLE_TRANSLATE_API_KEY=<your-google-cloud-api-key>
+GOOGLE_TRANSLATE_TARGET_LANGUAGE=en
+TRANSLATION_MIN_QUERY_LENGTH=2
+TRANSLATION_MAX_QUERY_LENGTH=80
+TRANSLATION_WEAK_RESULT_THRESHOLD=650
+TRANSLATION_CACHE_MAX_SIZE=1000
+TRANSLATION_REQUEST_TIMEOUT_SECONDS=3
+```
 
 ## CORS Configuration
 

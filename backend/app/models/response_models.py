@@ -27,3 +27,8 @@ class ApiResponse(BaseModel, Generic[T]):
 
 class SearchResponseData(BaseModel):
     results: List[SearchResult]
+    translationFallbackUsed: bool = False
+    translatedQuery: Optional[str] = None
+    detectedLanguage: Optional[str] = None
+    translationProvider: Optional[str] = None
+

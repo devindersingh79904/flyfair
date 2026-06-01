@@ -5,12 +5,18 @@ interface SearchResultDropdownProps {
   results: SearchResult[];
   onSelect: (result: SearchResult) => void;
   visible: boolean;
+  translationInfo?: {
+    fallbackUsed: boolean;
+    originalQuery?: string;
+    translatedQuery?: string;
+  } | null;
 }
 
 export const SearchResultDropdown: React.FC<SearchResultDropdownProps> = ({
   results,
   onSelect,
-  visible
+  visible,
+  translationInfo
 }) => {
   if (!visible || results.length === 0) return null;
 
@@ -60,6 +66,13 @@ export const SearchResultDropdown: React.FC<SearchResultDropdownProps> = ({
 
   return (
     <ul className="search-result-dropdown">
+      {showDebug && translationInfo?.fallbackUsed && (
+        <li className="search-result-row debug-translation-banner" style={{ padding: "8px 16px", background: "#f0f4f9", borderBottom: "1px solid #e0e0e0", fontSize: "12px", color: "#5f6368" }}>
+          <div>
+            <strong>Translated Fallback:</strong> {translationInfo.originalQuery} → {translationInfo.translatedQuery}
+          </div>
+        </li>
+      )}
       {results.map((result) => {
         if (result.type === "CITY_GROUP" || result.type === "REGION_GROUP") {
           const isCity = result.type === "CITY_GROUP";

@@ -24,6 +24,11 @@ export const AirportSearchBox: React.FC<AirportSearchBoxProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [translationInfo, setTranslationInfo] = useState<{
+    fallbackUsed: boolean;
+    originalQuery?: string;
+    translatedQuery?: string;
+  } | null>(null);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
@@ -73,8 +78,14 @@ export const AirportSearchBox: React.FC<AirportSearchBoxProps> = ({
       const response = await searchAirports(trimmed, 10, correlationId, abortController.signal);
       if (response.status === "SUCCESS" && response.data) {
         setResults(response.data.results);
+        setTranslationInfo({
+          fallbackUsed: response.data.translationFallbackUsed || false,
+          originalQuery: trimmed,
+          translatedQuery: response.data.translatedQuery
+        });
       } else {
         setResults([]);
+        setTranslationInfo(null);
       }
     } catch (err: any) {
       if (err.name === "AbortError") {
@@ -102,6 +113,7 @@ export const AirportSearchBox: React.FC<AirportSearchBoxProps> = ({
       onSelect(null);
     }
 
+    setTranslationInfo(null);
     setDropdownVisible(true);
     debouncedSearch(val);
   };
@@ -126,6 +138,7 @@ export const AirportSearchBox: React.FC<AirportSearchBoxProps> = ({
     onSelect(null);
     setError(null);
     setDropdownVisible(false);
+    setTranslationInfo(null);
   };
 
   const showEmptyState =
@@ -165,6 +178,7 @@ export const AirportSearchBox: React.FC<AirportSearchBoxProps> = ({
         results={results}
         onSelect={handleSelectResult}
         visible={dropdownVisible && !loading && !error}
+        translationInfo={translationInfo}
       />
     </div>
   );

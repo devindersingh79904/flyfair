@@ -49,4 +49,9 @@ export interface SearchResult {
 
 export interface SearchResponseData {
   results: SearchResult[];
+  translationFallbackUsed?: boolean;
+  translatedQuery?: string;
+  detectedLanguage?: string;
+  translationProvider?: string;
 }
+

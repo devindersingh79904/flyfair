@@ -90,14 +90,17 @@ EVAL_CASES = [
     ("Intent - Goa -> city group", "Goa", "city_group:goa-in", None),
     ("Intent - GOA -> airport", "GOA", "airport:GOA", None),
     ("Intent - LON -> city group (protected)", "LON", "city_group:london-gb", None),
+    # --- Thai Multilingual (GeoNames geonameId grouping) ---
+    ("Thai alias - ภูเก็ต → HKT", "ภูเก็ต", "airport:HKT", None),
+    ("Thai airport alias - ท่าอากาศยานภูเก็ต → HKT", "ท่าอากาศยานภูเก็ต", "airport:HKT", None),
 ]
 
-assert len(EVAL_CASES) == 45, f"Expected 45 cases, got {len(EVAL_CASES)}"
+assert len(EVAL_CASES) == 47, f"Expected 47 cases, got {len(EVAL_CASES)}"
 
 
 def run_eval():
     print("=" * 68)
-    print("  Fly Fairly Airport Search — Evaluation Suite (45 cases)")
+    print("  Fly Fairly Airport Search — Evaluation Suite (47 cases)")
     print(f"  Data directory: {DATA_DIR}")
     print("=" * 68)
 
@@ -136,12 +139,65 @@ def run_eval():
             line += f"  EXPECTED={expected_id!r}"
         print(line)
 
+    from app.core.config import settings
+    
+    live_passed = 0
+    live_failed = 0
+    run_live = False
+    
+    if settings.IS_TRANSLATION_ENABLED:
+        run_live = True
+        print("\n" + "=" * 68)
+        print("  Running Live Translation Fallback Evaluation Cases")
+        print("=" * 68)
+        
+        live_cases = [
+            ("Translation fallback - ภูเก็ต → HKT", "ภูเก็ต", "airport:HKT", None),
+            ("Translation fallback - สุวรรณภูมิ → BKK", "สุวรรณภูมิ", "airport:BKK", None),
+            ("Translation fallback - 昌迪加尔 → IXC", "昌迪加尔", "airport:IXC", None),
+            ("Translation fallback - दिल्ली → DEL", "दिल्ली", "airport:DEL", None),
+            ("Translation fallback - Москва → SVO", "Москва", "airport:SVO", None),
+        ]
+        
+        for i, (desc, query, expected_id, check_fn) in enumerate(live_cases, start=1):
+            response_data, _ = service.search(query, limit=10)
+            results = response_data.results
+
+            actual_top = results[0].id if results else "NO_RESULTS"
+            actual_top_name = results[0].displayName if results else "—"
+
+            if expected_id is not None:
+                ok = actual_top == expected_id
+            elif check_fn is not None:
+                ok = check_fn(results)
+            else:
+                ok = len(results) > 0
+
+            status = "✅ PASS" if ok else "❌ FAIL"
+            if ok:
+                live_passed += 1
+            else:
+                live_failed += 1
+
+            line = (
+                f"[Live {i:02d}] {status}  {desc!r:50s}  "
+                f"query={query!r:15s}  top={actual_top!r} ({actual_top_name})"
+            )
+            if not ok and expected_id:
+                line += f"  EXPECTED={expected_id!r}"
+            print(line)
+    else:
+        print("\nTranslation fallback disabled; skipping live translation eval.")
+
     print()
     print("=" * 68)
     print(f"  RESULTS: {passed}/{len(EVAL_CASES)} passed, {failed} failed")
+    if run_live:
+        print(f"  LIVE TRANSLATION RESULTS: {live_passed}/{len(live_cases)} passed, {live_failed} failed")
     print("=" * 68)
 
-    return failed == 0
+    return failed == 0 and (not run_live or live_failed == 0)
+
 
 
 if __name__ == "__main__":

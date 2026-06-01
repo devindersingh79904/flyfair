@@ -1,5 +1,7 @@
 import time
 import logging
+import asyncio
+import threading
 from typing import List, Dict, Any, Optional
 from rapidfuzz import fuzz
 from app.services.index_builder import IndexBuilder
@@ -10,12 +12,15 @@ from app.models.response_models import SearchResponseData
 from app.models.airport_models import Airport, CityGroup, RegionGroup
 from app.core.constants import ResultType, MatchReason, LogEvent
 from app.core.config import settings
+from app.services.translation_service import TranslationService, should_try_translation
+
 
 logger = logging.getLogger(__name__)
 
 class AirportSearchService:
-    def __init__(self, index: IndexBuilder):
+    def __init__(self, index: IndexBuilder, translation_service: Optional[TranslationService] = None):
         self.index = index
+        self.translation_service = translation_service or TranslationService()
 
     def _map_airport_to_summary(self, ap: Airport) -> SearchResultAirport:
         return SearchResultAirport(
@@ -81,15 +86,13 @@ class AirportSearchService:
             airports=airports
         )
 
-    def search(self, query_str: str, limit: int) -> SearchResponseData:
-        start_time = time.perf_counter()
-        
+    def _search_local(self, query_str: str, limit: int) -> List[SearchResult]:
         q = normalize_query(query_str)
         candidates: List[SearchResult] = []
         query_len = len(q.normalized)
 
         if query_len == 0:
-            return SearchResponseData(results=[])
+            return []
 
         self.collect_iata_exact(query_str, q, candidates)
         self.collect_city_code_exact(q, candidates)
@@ -120,34 +123,131 @@ class AirportSearchService:
         # Suppress duplicate child airports from groups
         suppressed = suppress_group_child_airport_duplicates(deduped)
         
-        sliced = suppressed[:limit]
-        
-        latency_ms = int((time.perf_counter() - start_time) * 1000)
+        return suppressed[:limit]
 
+    def _should_call_translation_fallback(self, query_str: str, local_results: List[SearchResult]) -> bool:
+        if not settings.IS_TRANSLATION_ENABLED:
+            return False
+        if not should_try_translation(query_str):
+            return False
+        if not local_results:
+            return True
+        top_score = local_results[0].score
+        if top_score < settings.TRANSLATION_WEAK_RESULT_THRESHOLD:
+            return True
+        return False
+
+    def _log_search_completed(self, query_str: str, results: List[SearchResult], latency_ms: int, translation_result: Optional[Any] = None):
         top_result_name = "None"
         top_score = 0
         match_reason_str = "None"
-        if sliced:
-            top_res = sliced[0]
+        if results:
+            top_res = results[0]
             top_result_name = f"{top_res.displayName}, {top_res.country}"
             top_score = top_res.score
             match_reason_str = top_res.matchReason.value
 
+        extra_log = {
+            "event": LogEvent.SEARCH_COMPLETED.value,
+            "query": query_str,
+            "resultCount": len(results),
+            "topResult": top_result_name,
+            "topScore": top_score,
+            "matchReason": match_reason_str,
+            "latencyMs": latency_ms
+        }
+        if translation_result:
+            extra_log.update({
+                "translationFallbackUsed": True,
+                "translatedQuery": translation_result.translated_text,
+                "detectedLanguage": translation_result.detected_language,
+                "translationProvider": translation_result.provider
+            })
+
         logger.info(
-            f"Airport search completed successfully: query='{query_str}' resultCount={len(sliced)}",
-            extra={
-                "event": LogEvent.SEARCH_COMPLETED.value,
-                "query": query_str,
-                "normalizedQuery": q.normalized,
-                "resultCount": len(sliced),
-                "topResult": top_result_name,
-                "topScore": top_score,
-                "matchReason": match_reason_str,
-                "latencyMs": latency_ms
-            }
+            f"Airport search completed successfully: query='{query_str}' "
+            f"resultCount={len(results)} fallbackUsed={bool(translation_result)}",
+            extra=extra_log
         )
 
-        return SearchResponseData(results=sliced), latency_ms
+    def search(self, query_str: str, limit: int) -> tuple[SearchResponseData, int]:
+        start_time = time.perf_counter()
+        
+        # 1. Search local index first
+        local_results = self._search_local(query_str, limit)
+        
+        # 2. Check if we need to try translation
+        if not self._should_call_translation_fallback(query_str, local_results):
+            latency_ms = int((time.perf_counter() - start_time) * 1000)
+            self._log_search_completed(query_str, local_results, latency_ms)
+            return SearchResponseData(results=local_results), latency_ms
+
+        # 3. Call translation service synchronously
+        translation_coro = self.translation_service.translate_to_english(query_str)
+        
+        # Helper runner
+        def _run_sync(coro):
+            try:
+                loop = asyncio.get_running_loop()
+            except RuntimeError:
+                loop = None
+
+            if loop and loop.is_running():
+                result = None
+                exception = None
+                def target():
+                    nonlocal result, exception
+                    try:
+                        result = asyncio.run(coro)
+                    except Exception as e:
+                        exception = e
+                t = threading.Thread(target=target)
+                t.start()
+                t.join()
+                if exception:
+                    raise exception
+                return result
+            else:
+                return asyncio.run(coro)
+
+        try:
+            translation_result = _run_sync(translation_coro)
+        except Exception as e:
+            logger.error(f"Translation fallback call failed: {str(e)}")
+            translation_result = None
+
+        
+        if not translation_result or not translation_result.translated_text:
+            latency_ms = int((time.perf_counter() - start_time) * 1000)
+            self._log_search_completed(query_str, local_results, latency_ms)
+            return SearchResponseData(results=local_results), latency_ms
+            
+        translated_query = translation_result.translated_text
+        if normalize_query(translated_query).normalized == normalize_query(query_str).normalized:
+            latency_ms = int((time.perf_counter() - start_time) * 1000)
+            self._log_search_completed(query_str, local_results, latency_ms)
+            return SearchResponseData(results=local_results), latency_ms
+
+        # 4. Search again using translated English query
+        translated_results = self._search_local(translated_query, limit)
+        
+        local_top_score = local_results[0].score if local_results else 0
+        translated_top_score = translated_results[0].score if translated_results else 0
+        
+        if translated_top_score > local_top_score:
+            latency_ms = int((time.perf_counter() - start_time) * 1000)
+            self._log_search_completed(query_str, translated_results, latency_ms, translation_result)
+            return SearchResponseData(
+                results=translated_results,
+                translationFallbackUsed=True,
+                translatedQuery=translated_query,
+                detectedLanguage=translation_result.detected_language,
+                translationProvider=translation_result.provider
+            ), latency_ms
+        else:
+            latency_ms = int((time.perf_counter() - start_time) * 1000)
+            self._log_search_completed(query_str, local_results, latency_ms)
+            return SearchResponseData(results=local_results), latency_ms
 
     def collect_iata_exact(self, raw_query, q, candidates):
         if len(q.upper) == 3:

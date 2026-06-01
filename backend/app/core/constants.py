@@ -74,3 +74,6 @@ class LogEvent(str, Enum):
     DATA_LOAD_FAILURE = "data_load_failure"
     UNHANDLED_EXCEPTION = "unhandled_exception"
     VALIDATION_ERROR = "validation_error"
+
+TRANSLATION_PROVIDER_GOOGLE = "google"
+

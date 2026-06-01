@@ -27,6 +27,26 @@ class Settings(BaseSettings):
     SUBSEQUENCE_MIN_QUERY_LENGTH: int = 3
     MAX_SEARCH_RESULTS: int = 20
     DEFAULT_SEARCH_LIMIT: int = 10
+
+    # Translation fallback
+    ENABLE_TRANSLATION_FALLBACK: bool = False
+    TRANSLATION_PROVIDER: str = "google"
+    GOOGLE_TRANSLATE_API_KEY: str = ""
+    GOOGLE_TRANSLATE_TARGET_LANGUAGE: str = "en"
+    TRANSLATION_MIN_QUERY_LENGTH: int = 2
+    TRANSLATION_MAX_QUERY_LENGTH: int = 80
+    TRANSLATION_WEAK_RESULT_THRESHOLD: float = 650.0
+    TRANSLATION_CACHE_MAX_SIZE: int = 1000
+    TRANSLATION_REQUEST_TIMEOUT_SECONDS: float = 3.0
+
+    @property
+    def IS_TRANSLATION_ENABLED(self) -> bool:
+        return (
+            self.ENABLE_TRANSLATION_FALLBACK
+            and self.TRANSLATION_PROVIDER == "google"
+            and bool(self.GOOGLE_TRANSLATE_API_KEY.strip() if self.GOOGLE_TRANSLATE_API_KEY else False)
+        )
+
     model_config = SettingsConfigDict(
         env_file=ENV_FILE_PATH,
         env_file_encoding="utf-8",
